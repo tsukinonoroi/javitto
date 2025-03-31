@@ -21,3 +21,7 @@ jwt:
     converter:
       resource-id: javitto-client
       principle-attribute: preferred_username
+
+keycloak:
+  realm: javitto
+  clientId: javitto-client
