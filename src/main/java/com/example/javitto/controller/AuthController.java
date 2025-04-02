@@ -2,9 +2,13 @@ package com.example.javitto.controller;
 
 
 import com.example.javitto.DTO.RegistrationRequest;
+import com.example.javitto.DTO.UserDTO;
+import com.example.javitto.entity.User;
 import com.example.javitto.exception.RegistrationException;
 import com.example.javitto.service.AuthService;
+import com.example.javitto.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

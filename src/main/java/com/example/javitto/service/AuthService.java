@@ -11,11 +11,13 @@ import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Collections;
 @Service
 @RequiredArgsConstructor
 public class AuthService {
     private final Keycloak keycloakAdminClient;
+    private final UserService userService;
     @Value("${keycloak.realm}")
     private String realm;
     @Value("${keycloak.clientId}")
@@ -29,6 +31,8 @@ public class AuthService {
             handleResponse(response);
             String userId = extractUserIdFromResponse(response);
             assignClientRole(userId);
+
+            userService.saveUser(userId, request.getUsername(), request.getEmail(), LocalDate.now());
         } finally {
             response.close();
         }
@@ -89,4 +93,6 @@ public class AuthService {
         }
         throw new RegistrationException("Пользователь не был создан, статус: " + response.getStatus());
     }
+
+
 }
