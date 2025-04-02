@@ -51,6 +51,7 @@ public class AuthService {
                 }}
         ));
         return user;
+        //<->
     }
 
     private void assignClientRole(String userId) {
