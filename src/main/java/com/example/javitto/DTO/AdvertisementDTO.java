@@ -1,6 +1,7 @@
 package com.example.javitto.DTO;
 
 import com.example.javitto.entity.User;
+import com.example.javitto.entity.enums.City;
 import com.example.javitto.entity.enums.ParentCategory;
 import com.example.javitto.entity.enums.SubCategory;
 import jakarta.persistence.*;
@@ -22,6 +23,7 @@ public class AdvertisementDTO {
     private SubCategory subCategory;
     private LocalDateTime dateOfCreation;
     private String address;
+    private City city;
     private List<String> photoUrl;
     private UserDTO user;
 }

@@ -1,5 +1,6 @@
 package com.example.javitto.entity;
 
+import com.example.javitto.entity.enums.City;
 import com.example.javitto.entity.enums.ParentCategory;
 import com.example.javitto.entity.enums.SubCategory;
 import jakarta.persistence.*;
@@ -16,16 +17,24 @@ public class Advertisement {
     @Id
     @GeneratedValue
     private Long id;
+
     private String title;
     private String description;
+
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal cost;
+
     @Enumerated(EnumType.STRING)
     private ParentCategory parentCategory;
     @Enumerated(EnumType.STRING)
+
     private SubCategory subCategory;
     private LocalDateTime dateOfCreation;
+
+    @Enumerated(EnumType.STRING)
+    private City city;
     private String address;
+
     @ElementCollection
     @CollectionTable(
             name = "advertisement_photos",
