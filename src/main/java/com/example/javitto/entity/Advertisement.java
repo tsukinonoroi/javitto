@@ -4,7 +4,9 @@ import com.example.javitto.entity.enums.City;
 import com.example.javitto.entity.enums.ParentCategory;
 import com.example.javitto.entity.enums.SubCategory;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import org.springframework.lang.NonNull;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -18,19 +20,24 @@ public class Advertisement {
     @GeneratedValue
     private Long id;
 
+    @Column(name = "title", nullable = false)
     private String title;
+
     private String description;
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal cost;
 
+    @Column(name = "parentCategory", nullable = false)
     @Enumerated(EnumType.STRING)
     private ParentCategory parentCategory;
-    @Enumerated(EnumType.STRING)
 
+    @Enumerated(EnumType.STRING)
     private SubCategory subCategory;
+
     private LocalDateTime dateOfCreation;
 
+    @Column(name = "city", nullable = false)
     @Enumerated(EnumType.STRING)
     private City city;
     private String address;
