@@ -27,3 +27,4 @@ jwt:
 keycloak:
   realm: javitto
   clientId: javitto-client
+  secret: rE0ySYD6QQyMe7xD8EJ8EA373NvAPOpc

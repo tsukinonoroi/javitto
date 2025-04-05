@@ -12,13 +12,15 @@ public class KeycloakConfig {
     private String realm;
     @Value("${keycloak.clientId}")
     private String clientId;
+    @Value("${keycloak.secret}")
+    private String secret;
     @Bean
     public Keycloak keycloakAdminClient() {
         return KeycloakBuilder.builder()
                 .serverUrl("http://localhost:8080")
                 .realm(realm)
                 .clientId(clientId)
-                .clientSecret("rE0ySYD6QQyMe7xD8EJ8EA373NvAPOpc")
+                .clientSecret(secret)
                 .grantType("client_credentials")
                 .build();
     }

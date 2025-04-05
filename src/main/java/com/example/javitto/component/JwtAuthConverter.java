@@ -20,7 +20,7 @@ import java.util.stream.Stream;
 
 @Component
 public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationToken> {
-    @Value("${jwt.auth.converter.principle-attribute")
+    @Value("${jwt.auth.converter.principle-attribute}")
     private String principleAttribute;
     @Value("${jwt.auth.converter.resource-id}")
     private String resourceId;
