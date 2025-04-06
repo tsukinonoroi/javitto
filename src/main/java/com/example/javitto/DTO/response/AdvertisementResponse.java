@@ -1,20 +1,22 @@
-package com.example.javitto.DTO;
+package com.example.javitto.DTO.response;
 
-import com.example.javitto.entity.User;
 import com.example.javitto.entity.enums.City;
 import com.example.javitto.entity.enums.ParentCategory;
 import com.example.javitto.entity.enums.SubCategory;
-import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Builder
 @Data
-public class AdvertisementDTO {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class AdvertisementResponse {
     private Long id;
     private String title;
     private String description;
@@ -25,5 +27,5 @@ public class AdvertisementDTO {
     private String address;
     private City city;
     private List<String> photoUrl;
-    private UserDTO user;
+    private String username;
 }

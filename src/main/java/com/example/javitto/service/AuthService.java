@@ -1,6 +1,6 @@
 package com.example.javitto.service;
 
-import com.example.javitto.DTO.RegistrationRequest;
+import com.example.javitto.DTO.request.RegistrationRequest;
 import com.example.javitto.exception.RegistrationException;
 import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
