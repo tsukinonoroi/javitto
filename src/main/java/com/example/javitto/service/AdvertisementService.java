@@ -8,6 +8,7 @@ import com.example.javitto.entity.User;
 import com.example.javitto.repository.AdvertisementRepository;
 import com.example.javitto.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AdvertisementService {
     private final AdvertisementRepository advertisementRepository;
     private final AdvertisementMapper mapper;
@@ -25,15 +27,23 @@ public class AdvertisementService {
 
         User user = userRepository.findByKeycloakId(keycloakId)
                 .orElseThrow(() -> new RuntimeException("Пользователь не найден"));
-
+        log.error("Не найден пользователь с keycloakId" + keycloakId);
         Advertisement advertisement = mapper.toEntity(request);
         advertisement.setUser(user);
         advertisement.setDateOfCreation(LocalDateTime.now());
 
-        Advertisement saveAdvertisement = advertisementRepository.save(advertisement);
+        advertisementRepository.save(advertisement);
 
         return mapper.toResponse(advertisement);
 
-        }
     }
+
+    public AdvertisementResponse findById(Long id) {
+        Advertisement adv = advertisementRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Объявление не найдено"));
+        log.error("Не найдено объявление с id " + id);
+        return mapper.toResponse(adv);
+    }
+}
+
 
