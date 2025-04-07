@@ -1,12 +1,9 @@
 package com.example.javitto.controller;
 
-import com.example.javitto.DTO.UserDTO;
 import com.example.javitto.DTO.mapper.UserMapper;
 import com.example.javitto.DTO.response.UserResponse;
 import com.example.javitto.entity.User;
 import com.example.javitto.service.UserService;
-import jakarta.ws.rs.Path;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +30,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(userResponse);
     } */
 
+    
     @GetMapping("/{username}")
     public ResponseEntity<UserResponse> getUserByUsername(@PathVariable String username) {
         User user = userService.getUserByUsername(username)

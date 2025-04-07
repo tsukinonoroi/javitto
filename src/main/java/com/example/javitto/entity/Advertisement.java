@@ -17,7 +17,7 @@ import java.util.List;
 @Entity
 public class Advertisement {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "title", nullable = false)

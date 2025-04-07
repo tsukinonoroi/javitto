@@ -18,10 +18,13 @@ import java.util.Collections;
 public class AuthService {
     private final Keycloak keycloakAdminClient;
     private final UserService userService;
+    private static final String CREDENTIAL_TYPE = CredentialRepresentation.PASSWORD;
     @Value("${keycloak.realm}")
     private String realm;
     @Value("${keycloak.clientId}")
     private String clientId;
+    @Value("${keycloak.roleUser}")
+    private String roleUser;
 
     public void registerUser(RegistrationRequest request) {
         UserRepresentation user = createUserRepresentation(request);
@@ -45,13 +48,12 @@ public class AuthService {
         user.setEnabled(true);
         user.setCredentials(Collections.singletonList(
                 new CredentialRepresentation() {{
-                    setType(CredentialRepresentation.PASSWORD);
+                    setType(CREDENTIAL_TYPE);
                     setValue(request.getPassword());
                     setTemporary(false);
                 }}
         ));
         return user;
-        //<->
     }
 
     private void assignClientRole(String userId) {
@@ -64,7 +66,7 @@ public class AuthService {
 
         RoleRepresentation clientUserRole = keycloakAdminClient.realm(realm)
                 .clients().get(clientUUID)
-                .roles().get("client_user")
+                .roles().get(roleUser)
                 .toRepresentation();
 
         keycloakAdminClient.realm(realm).users().get(userId)
