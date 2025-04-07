@@ -7,6 +7,7 @@ import com.example.javitto.entity.Advertisement;
 import com.example.javitto.entity.User;
 import com.example.javitto.repository.AdvertisementRepository;
 import com.example.javitto.repository.UserRepository;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -22,27 +23,40 @@ public class AdvertisementService {
     private final AdvertisementMapper mapper;
     private final UserRepository userRepository;
     private final SecurityService securityService;
+
     public AdvertisementResponse saveAdv(AdvertisementCreateRequest request) {
-        String keycloakId = securityService.getCurrentUserKeycloakId();
+        try {
+            String keycloakId = securityService.getCurrentUserKeycloakId();
+            User user = userRepository.findByKeycloakId(keycloakId)
+                    .orElseThrow(() -> new EntityNotFoundException("Пользователь не найден"));
 
-        User user = userRepository.findByKeycloakId(keycloakId)
-                .orElseThrow(() -> new RuntimeException("Пользователь не найден"));
-        log.error("Не найден пользователь с keycloakId" + keycloakId);
-        Advertisement advertisement = mapper.toEntity(request);
-        advertisement.setUser(user);
-        advertisement.setDateOfCreation(LocalDateTime.now());
+            Advertisement advertisement = mapper.toEntity(request);
+            advertisement.setUser(user);
+            advertisement.setDateOfCreation(LocalDateTime.now());
 
-        advertisementRepository.save(advertisement);
-
-        return mapper.toResponse(advertisement);
-
+            Advertisement savedAdvertisement = advertisementRepository.save(advertisement);
+            return mapper.toResponse(savedAdvertisement);
+        } catch (EntityNotFoundException e) {
+            log.error("Ошибка при сохранении объявления: {}", e.getMessage());
+            throw e;
+        } catch (Exception e) {
+            log.error("Непредвиденная ошибка при сохранении объявления: {}", e.getMessage(), e);
+            throw new RuntimeException("Ошибка при сохранении объявления", e);
+        }
     }
 
     public AdvertisementResponse findById(Long id) {
-        Advertisement adv = advertisementRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Объявление не найдено"));
-        log.error("Не найдено объявление с id " + id);
-        return mapper.toResponse(adv);
+        try {
+            Advertisement adv = advertisementRepository.findById(id)
+                    .orElseThrow(() -> new EntityNotFoundException("Объявление не найдено"));
+            return mapper.toResponse(adv);
+        } catch (EntityNotFoundException e) {
+            log.error("Объявление не найдено: id = {}", id);
+            throw e;
+        } catch (Exception e) {
+            log.error("Непредвиденная ошибка при поиске объявления: id = {}", id, e);
+            throw new RuntimeException("Ошибка при поиске объявления", e);
+        }
     }
 }
 
