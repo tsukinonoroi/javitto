@@ -2,6 +2,7 @@ package com.example.javitto.repository;
 
 
 import com.example.javitto.entity.Advertisement;
+import com.example.javitto.entity.User;
 import com.example.javitto.entity.enums.City;
 import com.example.javitto.entity.enums.ParentCategory;
 import com.example.javitto.entity.enums.SubCategory;
@@ -18,4 +19,8 @@ public interface AdvertisementRepository extends JpaRepository<Advertisement, Lo
     Optional<Advertisement> findByParentCategory(ParentCategory parentCategory);
     Optional<Advertisement> findByParentCategoryAndSubCategory(ParentCategory parentCategory, SubCategory subCategory);
     Optional<List<Advertisement>> findByUser_Username(String username);
+
+    Optional<Advertisement> findByUser(User user);
+
+    Optional<Advertisement> findByIdAndUser(Long id, User user);
 }
