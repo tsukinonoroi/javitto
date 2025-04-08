@@ -92,7 +92,7 @@ public class AdvertisementService {
             throw new AccessDeniedException("У вас нет прав на редактирование этого объявления");
         }
 
-        mapper.updateAdvertisementFromRequest(request, adv);
+        mapper.updateAdvertisementWithRequest(request, adv);
 
         Advertisement updated = advertisementRepository.save(adv);
         return mapper.toResponse(updated);

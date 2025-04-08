@@ -17,6 +17,6 @@ public interface AdvertisementMapper {
     @Mapping(target = "user", ignore = true)
     Advertisement toEntity(AdvertisementCreateRequest request);
 
-    void updateAdvertisementFromRequest(AdvertisementUpdateRequest request, @MappingTarget Advertisement advertisement);
+    void updateAdvertisementWithRequest(AdvertisementUpdateRequest request, @MappingTarget Advertisement advertisement);
 
 }
