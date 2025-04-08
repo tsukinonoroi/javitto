@@ -2,6 +2,7 @@ package com.example.javitto.service;
 
 import com.example.javitto.DTO.mapper.AdvertisementMapper;
 import com.example.javitto.DTO.request.AdvertisementCreateRequest;
+import com.example.javitto.DTO.request.AdvertisementUpdateRequest;
 import com.example.javitto.DTO.response.AdvertisementResponse;
 import com.example.javitto.entity.Advertisement;
 import com.example.javitto.entity.User;
@@ -78,7 +79,24 @@ public class AdvertisementService {
             throw new RuntimeException("Ошибка при получении списка объявлений", e);
         }
     }
+    public AdvertisementResponse updateAdvertisement(Long id, AdvertisementUpdateRequest request) {
+        Advertisement adv = advertisementRepository.findById(id)
+                .orElseThrow(() -> new AdvertisementNotFoundException("Объявление не найдено"));
 
+        String keycloakId = securityService.getCurrentUserKeycloakId();
+
+        User user = userRepository.findByKeycloakId(keycloakId)
+                .orElseThrow(() -> new UserNotFoundException("Пользователь не найден"));
+
+        if (!adv.getUser().equals(user) && !securityService.isAdmin()) {
+            throw new AccessDeniedException("У вас нет прав на редактирование этого объявления");
+        }
+
+        mapper.updateAdvertisementFromRequest(request, adv);
+
+        Advertisement updated = advertisementRepository.save(adv);
+        return mapper.toResponse(updated);
+    }
     public void deleteAdvertisement(Long id) {
         String keycloakId = securityService.getCurrentUserKeycloakId();
 

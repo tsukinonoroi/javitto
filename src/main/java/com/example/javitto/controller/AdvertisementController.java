@@ -1,6 +1,7 @@
 package com.example.javitto.controller;
 
 import com.example.javitto.DTO.request.AdvertisementCreateRequest;
+import com.example.javitto.DTO.request.AdvertisementUpdateRequest;
 import com.example.javitto.DTO.response.AdvertisementResponse;
 import com.example.javitto.exception.AdvertisementNotFoundException;
 import com.example.javitto.service.AdvertisementService;
@@ -53,6 +54,14 @@ public class AdvertisementController {
         return ResponseEntity.ok(advertisements);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<AdvertisementResponse> updateAdvertisement(
+            @PathVariable Long id,
+            @RequestBody AdvertisementUpdateRequest request) {
+        AdvertisementResponse response = advertisementService.updateAdvertisement(id, request);
+
+        return ResponseEntity.ok().body(response);
+    }
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAdvertisement(@PathVariable Long id) {
         advertisementService.deleteAdvertisement(id);
