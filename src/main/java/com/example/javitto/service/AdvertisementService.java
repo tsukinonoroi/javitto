@@ -5,6 +5,8 @@ import com.example.javitto.DTO.request.AdvertisementCreateRequest;
 import com.example.javitto.DTO.response.AdvertisementResponse;
 import com.example.javitto.entity.Advertisement;
 import com.example.javitto.entity.User;
+import com.example.javitto.exception.AdvertisementNotFoundException;
+import com.example.javitto.exception.UserNotFoundException;
 import com.example.javitto.repository.AdvertisementRepository;
 import com.example.javitto.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -12,7 +14,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Service
@@ -28,7 +29,7 @@ public class AdvertisementService {
         try {
             String keycloakId = securityService.getCurrentUserKeycloakId();
             User user = userRepository.findByKeycloakId(keycloakId)
-                    .orElseThrow(() -> new EntityNotFoundException("Пользователь не найден"));
+                    .orElseThrow(() -> new UserNotFoundException("Пользователь не найден"));
 
             Advertisement advertisement = mapper.toEntity(request);
             advertisement.setUser(user);
@@ -48,7 +49,7 @@ public class AdvertisementService {
     public AdvertisementResponse findById(Long id) {
         try {
             Advertisement adv = advertisementRepository.findById(id)
-                    .orElseThrow(() -> new EntityNotFoundException("Объявление не найдено"));
+                    .orElseThrow(() -> new AdvertisementNotFoundException("Объявление не найдено"));
             return mapper.toResponse(adv);
         } catch (EntityNotFoundException e) {
             log.error("Объявление не найдено: id = {}", id);
