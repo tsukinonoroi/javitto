@@ -1,10 +1,12 @@
 package com.example.javitto.DTO.mapper;
 
 import com.example.javitto.DTO.request.AdvertisementCreateRequest;
+import com.example.javitto.DTO.request.AdvertisementUpdateRequest;
 import com.example.javitto.DTO.response.AdvertisementResponse;
 import com.example.javitto.entity.Advertisement;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
 @Mapper(componentModel = "spring")
 public interface AdvertisementMapper {
@@ -15,6 +17,5 @@ public interface AdvertisementMapper {
     @Mapping(target = "user", ignore = true)
     Advertisement toEntity(AdvertisementCreateRequest request);
 
-
-
+    void updateAdvertisementFromRequest(AdvertisementUpdateRequest request, @MappingTarget Advertisement advertisement);
 }

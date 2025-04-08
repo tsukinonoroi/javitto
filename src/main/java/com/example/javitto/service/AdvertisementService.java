@@ -2,6 +2,7 @@ package com.example.javitto.service;
 
 import com.example.javitto.DTO.mapper.AdvertisementMapper;
 import com.example.javitto.DTO.request.AdvertisementCreateRequest;
+import com.example.javitto.DTO.request.AdvertisementUpdateRequest;
 import com.example.javitto.DTO.response.AdvertisementResponse;
 import com.example.javitto.entity.Advertisement;
 import com.example.javitto.entity.User;
@@ -109,6 +110,25 @@ public class AdvertisementService {
                 log.error("Ошибка при удалении объявления пользователем: {}", id, e);
                 throw new RuntimeException("Ошибка при удалении объявления", e);
         }
+    }
+
+    public AdvertisementResponse updateAdvertisement(Long id, AdvertisementUpdateRequest request) {
+        Advertisement adv = advertisementRepository.findById(id)
+                .orElseThrow(() -> new AdvertisementNotFoundException("Объявление не найдено"));
+
+        String keycloakId = securityService.getCurrentUserKeycloakId();
+
+        User user = userRepository.findByKeycloakId(keycloakId)
+                .orElseThrow(() -> new UserNotFoundException("Пользователь не найден"));
+
+        if (!adv.getUser().equals(user)) {
+            throw new AccessDeniedException("У вас нет прав на редактирование этого объявления");
+        }
+
+        mapper.updateAdvertisementFromRequest(request, adv);
+
+        Advertisement updated = advertisementRepository.save(adv);
+        return mapper.toResponse(updated);
     }
 
 
