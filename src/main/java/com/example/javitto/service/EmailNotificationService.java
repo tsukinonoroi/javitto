@@ -32,7 +32,7 @@ public class EmailNotificationService implements NotificationService {
         NotificationDTO notification = new NotificationDTO();
         notification.setRecipient(email);
         notification.setSubject("Добро пожаловать в Javitto!");
-        notification.setText("Здравствуйте, " + username +
+        notification.setText("Здравствуйте,    " + username +
                 "Ваша регистрация успешно завершена. Добро пожаловать на нашу платформу Javitto!");
 
         send(notification);

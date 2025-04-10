@@ -39,7 +39,7 @@ public class AuthService {
             assignClientRole(userId);
 
             userService.saveUser(userId, request.getUsername(), request.getEmail(), LocalDate.now());
-            log.info("Сохраняем пользователя в БД : {}", request.getUsername());
+            log.info("Сохраняем пользователя в БД : {} ", request.getUsername());
             emailNotificationService.sendRegistrationEmail(request.getEmail(), request.getUsername());
         } finally {
             response.close();
