@@ -4,6 +4,7 @@ import com.example.javitto.DTO.request.RegistrationRequest;
 import com.example.javitto.exception.RegistrationException;
 import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.RoleRepresentation;
@@ -15,9 +16,11 @@ import java.time.LocalDate;
 import java.util.Collections;
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AuthService {
     private final Keycloak keycloakAdminClient;
     private final UserService userService;
+    private final EmailNotificationService emailNotificationService;
     private static final String CREDENTIAL_TYPE = CredentialRepresentation.PASSWORD;
     @Value("${keycloak.realm}")
     private String realm;
@@ -36,6 +39,8 @@ public class AuthService {
             assignClientRole(userId);
 
             userService.saveUser(userId, request.getUsername(), request.getEmail(), LocalDate.now());
+            log.info("Сохраняем пользователя в БД : {}", request.getUsername());
+            emailNotificationService.sendRegistrationEmail(request.getEmail(), request.getUsername());
         } finally {
             response.close();
         }
