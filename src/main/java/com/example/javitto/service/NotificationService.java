@@ -1,7 +1,7 @@
 package com.example.javitto.service;
 
-import com.example.javitto.DTO.response.NotificationResponse;
+import com.example.javitto.DTO.NotificationDTO;
 
 public interface NotificationService {
-    void send(NotificationResponse notification);
+    void send(NotificationDTO notification);
 }
