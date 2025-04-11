@@ -31,6 +31,7 @@ public class AdvertisementService {
     private final AdvertisementMapper mapper;
     private final UserRepository userRepository;
     private final SecurityService securityService;
+    private final EmailNotificationService emailNotificationService;
 
     public AdvertisementResponse saveAdv(AdvertisementCreateRequest request) {
         try {
@@ -43,6 +44,8 @@ public class AdvertisementService {
             advertisement.setDateOfCreation(LocalDateTime.now());
 
             Advertisement savedAdvertisement = advertisementRepository.save(advertisement);
+            emailNotificationService.sendAdvertisementEmail(user.getEmail(), advertisement.getTitle(), user.getUsername());
+            
             return mapper.toResponse(savedAdvertisement);
         } catch (RuntimeException e) {
             log.error("Ошибка при сохранении объявления: {}", e.getMessage());
