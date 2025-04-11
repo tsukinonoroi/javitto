@@ -40,6 +40,7 @@ public class EmailNotificationService implements NotificationService {
         log.info("Отправка уведомления после регистрации пользователю : {}", username);
     }
 
+    @Async
     public void sendAdvertisementEmail(String email, String title, String username) {
         NotificationDTO notification = new NotificationDTO();
         notification.setRecipient(email);
