@@ -27,7 +27,6 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
-
     @GetMapping("/hello")
     @PreAuthorize("hasRole('client_user')")
     public String hello() {
