@@ -1,9 +1,9 @@
 package com.example.javitto.service;
 
 import com.example.javitto.DTO.NotificationDTO;
+import com.example.javitto.service.spi.NotificationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.weaver.ast.Not;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
