@@ -26,7 +26,6 @@ public class AuthController {
         catch (RegistrationException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
-
     }
 
     @GetMapping("/hello")

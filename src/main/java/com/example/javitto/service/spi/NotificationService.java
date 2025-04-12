@@ -1,4 +1,4 @@
-package com.example.javitto.service;
+package com.example.javitto.service.spi;
 
 import com.example.javitto.DTO.NotificationDTO;
 
