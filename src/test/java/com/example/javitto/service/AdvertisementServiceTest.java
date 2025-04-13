@@ -75,6 +75,7 @@ public class AdvertisementServiceTest {
         when(userRepository.findByKeycloakId(keycloakId)).thenReturn(Optional.of(user));
         when(advertisementRepository.save(any(Advertisement.class))).thenReturn(savedAdvertisement);
         when(mapper.toResponse(any(Advertisement.class))).thenReturn(response);
+        when(mapper.toEntity(request)).thenReturn(savedAdvertisement);
 
         AdvertisementResponse actualResponse = advertisementService.saveAdv(request);
 
