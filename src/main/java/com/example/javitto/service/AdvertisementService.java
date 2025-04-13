@@ -38,8 +38,12 @@ public class AdvertisementService {
             String keycloakId = securityService.getCurrentUserKeycloakId();
             User user = userRepository.findByKeycloakId(keycloakId)
                     .orElseThrow(() -> new UserNotFoundException("Пользователь не найден"));
-
+            log.info("Найден пользователь: {}", user);
             Advertisement advertisement = mapper.toEntity(request);
+            if (advertisement == null) {
+                log.error("Маппер не создал объект Advertisement для запроса: {}", request);
+                throw new IllegalStateException("Ошибка при создании объекта Advertisement");
+            }
             advertisement.setUser(user);
             advertisement.setDateOfCreation(LocalDateTime.now());
 
