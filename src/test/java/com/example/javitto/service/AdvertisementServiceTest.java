@@ -41,10 +41,10 @@ public class AdvertisementServiceTest {
     private AdvertisementService advertisementService;
 
     @Test
-    void saveAdv_shouldSaveAdvertisement() {
-        AdvertisementCreateRequest request = new AdvertisementCreateRequest("Iphone13 pro",
-                "Новый, 10 циклов зарядки", BigDecimal.valueOf(10000), ParentCategory.ELECTRONICS,
-                SubCategory.SMARTPHONES,
+    void saveAdv_shouldReturnCorrectResponse_whenAdvertisementCreated() {
+        AdvertisementCreateRequest request = new AdvertisementCreateRequest(
+                "Iphone13 pro", "Новый, 10 циклов зарядки", BigDecimal.valueOf(10000),
+                ParentCategory.ELECTRONICS, SubCategory.SMARTPHONES,
                 City.SIMPHEROPOL, "Lenina, 24b", List.of("https://1212"));
 
         String keycloakId = "8a72cb52-9aac-4fc0-b384-b6df44724354";
@@ -53,19 +53,53 @@ public class AdvertisementServiceTest {
         user.setUsername("testuser111");
         user.setEmail("testuser@example.com111");
 
-        Advertisement savedAdvertisement = Advertisement
-                .builder()
+        Advertisement advertisement = Advertisement.builder()
                 .id(1L)
-                .title("Iphone13 pro")
-                .description("Новый, 10 циклов зарядки")
-                .cost(BigDecimal.valueOf(10000))
-                .parentCategory(ParentCategory.ELECTRONICS)
-                .subCategory(SubCategory.SMARTPHONES)
-                .city(City.SIMPHEROPOL)
-                .address("Lenina, 24b")
-                .photoUrl(List.of("https://1212"))
+                .title(request.getTitle())
+                .description(request.getDescription())
+                .cost(request.getCost())
+                .parentCategory(request.getParentCategory())
+                .subCategory(request.getSubCategory())
+                .city(request.getCity())
+                .address(request.getAddress())
+                .photoUrl(request.getPhotoUrl())
                 .user(user)
                 .dateOfCreation(LocalDateTime.now())
+                .build();
+
+        AdvertisementResponse expectedResponse = new AdvertisementResponse();
+        expectedResponse.setTitle("Iphone13 pro");
+
+        when(securityService.getCurrentUserKeycloakId()).thenReturn(keycloakId);
+        when(userRepository.findByKeycloakId(keycloakId)).thenReturn(Optional.of(user));
+        when(mapper.toEntity(request)).thenReturn(advertisement);
+        when(advertisementRepository.save(any())).thenReturn(advertisement);
+        when(mapper.toResponse(any())).thenReturn(expectedResponse);
+
+        AdvertisementResponse actualResponse = advertisementService.saveAdv(request);
+
+
+        assertEquals(expectedResponse.getTitle(), actualResponse.getTitle());
+    }
+
+    @Test
+    void saveAdv_shouldSendEmailNotification() {
+
+        AdvertisementCreateRequest request = new AdvertisementCreateRequest(
+                "Iphone13 pro", "Новый, 10 циклов зарядки", BigDecimal.valueOf(10000),
+                ParentCategory.ELECTRONICS, SubCategory.SMARTPHONES,
+                City.SIMPHEROPOL, "Lenina, 24b", List.of("https://1212"));
+
+        String keycloakId = "8a72cb52-9aac-4fc0-b384-b6df44724354";
+        User user = new User();
+        user.setKeycloakId(keycloakId);
+        user.setUsername("testuser111");
+        user.setEmail("testuser@example.com111");
+
+        Advertisement advertisement = Advertisement.builder()
+                .id(1L)
+                .title(request.getTitle())
+                .user(user)
                 .build();
 
         AdvertisementResponse response = new AdvertisementResponse();
@@ -73,16 +107,16 @@ public class AdvertisementServiceTest {
 
         when(securityService.getCurrentUserKeycloakId()).thenReturn(keycloakId);
         when(userRepository.findByKeycloakId(keycloakId)).thenReturn(Optional.of(user));
-        when(advertisementRepository.save(any(Advertisement.class))).thenReturn(savedAdvertisement);
-        when(mapper.toResponse(any(Advertisement.class))).thenReturn(response);
-        when(mapper.toEntity(request)).thenReturn(savedAdvertisement);
+        when(mapper.toEntity(request)).thenReturn(advertisement);
+        when(advertisementRepository.save(any())).thenReturn(advertisement);
+        when(mapper.toResponse(any())).thenReturn(response);
 
-        AdvertisementResponse actualResponse = advertisementService.saveAdv(request);
-
-        assertEquals(response.getTitle(), actualResponse.getTitle());
+        advertisementService.saveAdv(request);
 
         verify(emailNotificationService, times(1))
                 .sendAdvertisementEmail(user.getEmail(), request.getTitle(), user.getUsername());
-
     }
+
+
+
 }
