@@ -10,6 +10,7 @@ import com.example.javitto.entity.enums.ParentCategory;
 import com.example.javitto.entity.enums.SubCategory;
 import com.example.javitto.repository.AdvertisementRepository;
 import com.example.javitto.repository.UserRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -40,32 +41,45 @@ public class AdvertisementServiceTest {
     @InjectMocks
     private AdvertisementService advertisementService;
 
-    @Test
-    void saveAdv_shouldReturnCorrectResponse_whenAdvertisementCreated() {
-        AdvertisementCreateRequest request = new AdvertisementCreateRequest(
-                "Iphone13 pro", "Новый, 10 циклов зарядки", BigDecimal.valueOf(10000),
-                ParentCategory.ELECTRONICS, SubCategory.SMARTPHONES,
-                City.SIMPHEROPOL, "Lenina, 24b", List.of("https://1212"));
-
-        String keycloakId = "8a72cb52-9aac-4fc0-b384-b6df44724354";
-        User user = new User();
-        user.setKeycloakId(keycloakId);
-        user.setUsername("testuser111");
+    private User user;
+    private Advertisement advertisement;
+    private AdvertisementCreateRequest request;
+    @BeforeEach
+    void setup() {
+        user = new User();
+        user.setKeycloakId("8a72cb52-9aac-4fc0-b384-b6df44724354");
         user.setEmail("testuser@example.com111");
+        user.setUsername("testuser111");
+        request = AdvertisementCreateRequest
+                .builder()
+                .title("Iphone13 pro")
+                .description("Новый, 10 циклов зарядки")
+                .cost(BigDecimal.valueOf(10000))
+                .parentCategory(ParentCategory.ELECTRONICS)
+                .subCategory(SubCategory.SMARTPHONES)
+                .city(City.SIMPHEROPOL)
+                .address("Lenina, 24b")
+                .photoUrl(List.of("https://1212"))
+                .build();
 
-        Advertisement advertisement = Advertisement.builder()
+        advertisement = Advertisement.builder()
                 .id(1L)
-                .title(request.getTitle())
-                .description(request.getDescription())
-                .cost(request.getCost())
-                .parentCategory(request.getParentCategory())
-                .subCategory(request.getSubCategory())
-                .city(request.getCity())
-                .address(request.getAddress())
-                .photoUrl(request.getPhotoUrl())
+                .title("Iphone13 pro")
+                .description("Новый, 10 циклов зарядки")
+                .cost(BigDecimal.valueOf(10000))
+                .parentCategory(ParentCategory.ELECTRONICS)
+                .subCategory(SubCategory.SMARTPHONES)
+                .city(City.SIMPHEROPOL)
+                .address("Lenina, 24b")
+                .photoUrl(List.of("https://1212"))
                 .user(user)
                 .dateOfCreation(LocalDateTime.now())
                 .build();
+    }
+
+    @Test
+    void saveAdv_shouldReturnCorrectResponse_whenAdvertisementCreated() {
+        String keycloakId = user.getKeycloakId();
 
         AdvertisementResponse expectedResponse = new AdvertisementResponse();
         expectedResponse.setTitle("Iphone13 pro");
@@ -84,17 +98,7 @@ public class AdvertisementServiceTest {
 
     @Test
     void saveAdv_shouldSendEmailNotification() {
-
-        AdvertisementCreateRequest request = new AdvertisementCreateRequest(
-                "Iphone13 pro", "Новый, 10 циклов зарядки", BigDecimal.valueOf(10000),
-                ParentCategory.ELECTRONICS, SubCategory.SMARTPHONES,
-                City.SIMPHEROPOL, "Lenina, 24b", List.of("https://1212"));
-
-        String keycloakId = "8a72cb52-9aac-4fc0-b384-b6df44724354";
-        User user = new User();
-        user.setKeycloakId(keycloakId);
-        user.setUsername("testuser111");
-        user.setEmail("testuser@example.com111");
+        String keycloakId = user.getKeycloakId();
 
         Advertisement advertisement = Advertisement.builder()
                 .id(1L)
@@ -117,6 +121,21 @@ public class AdvertisementServiceTest {
                 .sendAdvertisementEmail(user.getEmail(), request.getTitle(), user.getUsername());
     }
 
+    @Test
+    void deleteAdv_shouldDeleteAdvByOwner() {
+        String keycloakId = user.getKeycloakId();
 
+        when(securityService.getCurrentUserKeycloakId()).thenReturn(keycloakId);
+        when(securityService.isAdmin()).thenReturn(false);
+        when(advertisementRepository.findById(1L)).thenReturn(Optional.of(advertisement));
+        when(userRepository.findByKeycloakId(keycloakId)).thenReturn(Optional.of(user));
+
+        advertisementService.deleteAdvertisement(1L);
+
+        verify(advertisementRepository, times(1)).deleteById(1L);
+
+    }
+
+    
 
 }
