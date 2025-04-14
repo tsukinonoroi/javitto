@@ -142,7 +142,7 @@ public class AdvertisementServiceTest {
 
         when(securityService.getCurrentUserKeycloakId()).thenReturn(keycloakId);
         when(securityService.isAdmin()).thenReturn(true);
-
+        when(advertisementRepository.findById(1L)).thenReturn(Optional.of(advertisement));
         advertisementService.deleteAdvertisement(1L);
 
         verify(advertisementRepository, times(1)).deleteById(1L);
