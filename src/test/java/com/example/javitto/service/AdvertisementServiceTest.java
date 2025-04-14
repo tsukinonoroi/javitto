@@ -10,12 +10,14 @@ import com.example.javitto.entity.enums.ParentCategory;
 import com.example.javitto.entity.enums.SubCategory;
 import com.example.javitto.repository.AdvertisementRepository;
 import com.example.javitto.repository.UserRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.access.AccessDeniedException;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -23,6 +25,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -41,15 +44,25 @@ public class AdvertisementServiceTest {
     @InjectMocks
     private AdvertisementService advertisementService;
 
-    private User user;
+    private User user, anotherUser;
     private Advertisement advertisement;
     private AdvertisementCreateRequest request;
     @BeforeEach
     void setup() {
-        user = new User();
-        user.setKeycloakId("8a72cb52-9aac-4fc0-b384-b6df44724354");
-        user.setEmail("testuser@example.com111");
-        user.setUsername("testuser111");
+        anotherUser = User
+                .builder()
+                .keycloakId("fc8f4790-f913-44bb-98d1-e2a37568e85c")
+                .email("testuser@example.com1")
+                .username("testuser1")
+                .build();
+
+        user = User
+                .builder()
+                .keycloakId("8a72cb52-9aac-4fc0-b384-b6df44724354")
+                .email("testuser@example.com111")
+                .username("testuser111")
+                .build();
+
         request = AdvertisementCreateRequest
                 .builder()
                 .title("Iphone13 pro")
@@ -148,6 +161,39 @@ public class AdvertisementServiceTest {
         verify(advertisementRepository, times(1)).deleteById(1L);
     }
 
-    
+    @Test
+    void deleteAdv_shouldThrowAccessDenied_whenNotOwnerOrAdmin() {
+        String keycloakId = anotherUser.getKeycloakId(); 
+
+        when(securityService.getCurrentUserKeycloakId()).thenReturn(keycloakId);
+        when(securityService.isAdmin()).thenReturn(false);
+        when(userRepository.findByKeycloakId(keycloakId)).thenReturn(Optional.of(anotherUser));
+        when(advertisementRepository.findById(1L)).thenReturn(Optional.of(advertisement));
+
+        assertThrows(AccessDeniedException.class, () -> {
+            advertisementService.deleteAdvertisement(1L);
+        });
+
+        verify(advertisementRepository, never()).deleteById(any());
+    }
+
+    @Test
+    void deleteAdv_shouldThrowException_whenAdvertisementNotFound() {
+        String keycloakId = user.getKeycloakId();
+
+        when(securityService.getCurrentUserKeycloakId()).thenReturn(keycloakId);
+        when(securityService.isAdmin()).thenReturn(false);
+        when(userRepository.findByKeycloakId(keycloakId)).thenReturn(Optional.of(user));
+        when(advertisementRepository.findById(1L)).thenReturn(Optional.empty());
+
+        assertThrows(EntityNotFoundException.class, () -> {
+            advertisementService.deleteAdvertisement(1L);
+        });
+
+        verify(advertisementRepository, never()).deleteById(any());
+    }
+
+
+
 
 }
