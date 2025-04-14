@@ -136,6 +136,18 @@ public class AdvertisementServiceTest {
 
     }
 
+    @Test
+    void deleteAdv_shouldDeleteAdvByAdmin() {
+        String keycloakId = user.getKeycloakId();
+
+        when(securityService.getCurrentUserKeycloakId()).thenReturn(keycloakId);
+        when(securityService.isAdmin()).thenReturn(true);
+
+        advertisementService.deleteAdvertisement(1L);
+
+        verify(advertisementRepository, times(1)).deleteById(1L);
+    }
+
     
 
 }
