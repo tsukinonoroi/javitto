@@ -1,0 +1,57 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: javitto_postgres
+    environment:
+      POSTGRES_DB: javitto
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  flyway:
+    image: flyway/flyway
+    container_name: javitto_flyway
+    depends_on:
+      - postgres
+    command: -url=jdbc:postgresql://postgres:5432/javitto -user=postgres -password=root -connectRetries=10 migrate
+    volumes:
+      - ./src/main/resources/db/migration:/flyway/sql
+
+  keycloak:
+    image: keycloak/keycloak:26.1.2
+    container_name: keycloak
+    command: start-dev --import-realm
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/javitto
+      KC_DB_USERNAME: postgres
+      KC_DB_PASSWORD: root
+      KC_FEATURES: scripts
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    volumes:
+      - ./keycloak/realm:/opt/keycloak/data/import
+
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: javitto_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:

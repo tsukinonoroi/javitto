@@ -12,7 +12,7 @@ spring:
   datasource:
       username: postgres
       password: root
-      url: jdbc:postgresql://localhost:5432/javitto
+      url: jdbc:postgresql://localhost:5433/javitto
       driver-class-name: org.postgresql.Driver
   flyway:
     enabled: true
@@ -29,5 +29,5 @@ jwt:
 keycloak:
   realm: javitto
   clientId: javitto-client
-  secret: rE0ySYD6QQyMe7xD8EJ8EA373NvAPOpc
+  secret: 9M056uTjTnUZ9LUIWYcJYFUZIZbWDJFv
   roleUser: client_user

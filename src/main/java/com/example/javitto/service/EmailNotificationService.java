@@ -48,7 +48,7 @@ public class EmailNotificationService implements NotificationService {
         notification.setText("Привет, " + username + "! Вы выставили объявление на продажу " + title);
 
         send(notification);
-        log.info("Отправка уведомления после регистрации пользователю : {}", username);
+        log.info("Отправка уведомления после создания объявления пользователю : {}", username);
     }
 
 }

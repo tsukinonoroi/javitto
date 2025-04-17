@@ -33,3 +33,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/keycloak/realm/realm-export.json

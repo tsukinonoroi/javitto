@@ -179,11 +179,6 @@ public class AdvertisementServiceTest {
 
     @Test
     void deleteAdv_shouldThrowException_whenAdvertisementNotFound() {
-        String keycloakId = user.getKeycloakId();
-
-        when(securityService.getCurrentUserKeycloakId()).thenReturn(keycloakId);
-        when(securityService.isAdmin()).thenReturn(false);
-        when(userRepository.findByKeycloakId(keycloakId)).thenReturn(Optional.of(user));
         when(advertisementRepository.findById(1L)).thenReturn(Optional.empty());
 
         assertThrows(EntityNotFoundException.class, () -> {

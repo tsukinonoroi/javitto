@@ -37,10 +37,10 @@ public class AuthService {
             handleResponse(response);
             String userId = extractUserIdFromResponse(response);
             assignClientRole(userId);
-
+            log.info("Вытащили юзерид: {}", userId);
             userService.saveUser(userId, request.getUsername(), request.getEmail(), LocalDate.now());
             log.info("Сохраняем пользователя в БД : {} ", request.getUsername());
-            emailNotificationService.sendRegistrationEmail(request.getEmail(), request.getUsername());
+            /*emailNotificationService.sendRegistrationEmail(request.getEmail(), request.getUsername());*/
         } finally {
             response.close();
         }

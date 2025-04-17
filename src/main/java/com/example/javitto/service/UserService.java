@@ -16,8 +16,8 @@ public class UserService {
 
     public User saveUser(String keycloakId, String username, String email, LocalDate dateOfRegistration) {
         User user = new User();
-        user.setUsername(username);
         user.setKeycloakId(keycloakId);
+        user.setUsername(username);
         user.setEmail(email);
         user.setDateOfRegistration(dateOfRegistration);
         return userRepository.save(user);
