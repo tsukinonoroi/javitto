@@ -8,6 +8,8 @@ spring:
           issuer-uri: http://localhost:8080/realms/javitto
           jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
 
+  elasticsearch:
+    uris: http://localhost:9200
 
   datasource:
       username: postgres
@@ -17,6 +19,7 @@ spring:
   flyway:
     enabled: true
     locations: classpath:db/migration
+
 server:
   port: 8082
 
