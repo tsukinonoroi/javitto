@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface AdvertisementSearchRepository extends ElasticsearchRepository<AdvertisementDocument, Long> {
     List<AdvertisementDocument> findByTitleContainingOrDescriptionContaining(String title, String description);
+
     
 }

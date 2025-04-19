@@ -21,4 +21,6 @@ public class AdvertisementSearchService {
     public void deleteFromIndex(Long id) {
         searchRepository.deleteById(id);
     }
+
+
 }
