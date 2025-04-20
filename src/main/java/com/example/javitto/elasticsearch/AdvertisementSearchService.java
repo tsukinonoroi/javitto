@@ -18,6 +18,7 @@ public class AdvertisementSearchService {
     private final AdvertisementMapper mapper;
 
     public Page<AdvertisementPreviewResponse> searchOrGetAll(String query, int page, int size) {
+
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "dateOfCreation"));
 
         if (query == null || query.trim().isEmpty()) {
