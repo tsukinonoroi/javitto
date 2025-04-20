@@ -2,7 +2,10 @@ package com.example.javitto.controller;
 
 import com.example.javitto.DTO.request.AdvertisementCreateRequest;
 import com.example.javitto.DTO.request.AdvertisementUpdateRequest;
+import com.example.javitto.DTO.response.AdvertisementPreviewResponse;
 import com.example.javitto.DTO.response.AdvertisementResponse;
+import com.example.javitto.elasticsearch.AdvertisementDocument;
+import com.example.javitto.elasticsearch.AdvertisementSearchService;
 import com.example.javitto.exception.AdvertisementNotFoundException;
 import com.example.javitto.service.AdvertisementService;
 import jakarta.persistence.EntityNotFoundException;
@@ -10,6 +13,10 @@ import jakarta.ws.rs.Path;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +28,7 @@ import java.util.List;
 @Slf4j
 public class AdvertisementController {
     private final AdvertisementService advertisementService;
+    private final AdvertisementSearchService searchService;
 
     @PostMapping
     public ResponseEntity<AdvertisementResponse>createAdvertisement(@RequestBody AdvertisementCreateRequest request) {
@@ -45,14 +53,15 @@ public class AdvertisementController {
         }
     }
 
-    @GetMapping
-    public ResponseEntity<Page<AdvertisementResponse>> getAdvertisements(
+    @GetMapping("/search")
+    public ResponseEntity<Page<AdvertisementPreviewResponse>> searchAdvertisements(
+            @RequestParam(required = false) String query,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
 
-        Page<AdvertisementResponse> advertisements = advertisementService.getAdvertisements(page, size);
-        return ResponseEntity.ok(advertisements);
+        return ResponseEntity.ok(searchService.searchOrGetAll(query, page, size));
     }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<AdvertisementResponse> updateAdvertisement(

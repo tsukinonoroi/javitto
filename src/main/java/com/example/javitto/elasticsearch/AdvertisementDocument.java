@@ -22,4 +22,6 @@ public class AdvertisementDocument {
     private String title;
     @Field(type = FieldType.Text)
     private String description;
+    @Field(type = FieldType.Date)
+    private String dateOfCreation;
 }

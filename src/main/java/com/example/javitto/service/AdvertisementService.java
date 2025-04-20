@@ -3,7 +3,11 @@ package com.example.javitto.service;
 import com.example.javitto.DTO.mapper.AdvertisementMapper;
 import com.example.javitto.DTO.request.AdvertisementCreateRequest;
 import com.example.javitto.DTO.request.AdvertisementUpdateRequest;
+import com.example.javitto.DTO.response.AdvertisementPreviewResponse;
 import com.example.javitto.DTO.response.AdvertisementResponse;
+import com.example.javitto.elasticsearch.AdvertisementDocument;
+import com.example.javitto.elasticsearch.AdvertisementSearchRepository;
+import com.example.javitto.elasticsearch.AdvertisementSearchService;
 import com.example.javitto.entity.Advertisement;
 import com.example.javitto.entity.User;
 import com.example.javitto.exception.AdvertisementNotFoundException;
@@ -32,6 +36,8 @@ public class AdvertisementService {
     private final UserRepository userRepository;
     private final SecurityService securityService;
     private final EmailNotificationService emailNotificationService;
+    private final AdvertisementSearchService searchService;
+    private final AdvertisementSearchRepository searchRepository;
 
     public AdvertisementResponse saveAdv(AdvertisementCreateRequest request) {
         try {
@@ -48,6 +54,8 @@ public class AdvertisementService {
             advertisement.setDateOfCreation(LocalDateTime.now());
 
             Advertisement savedAdvertisement = advertisementRepository.save(advertisement);
+            searchService.saveToIndex(mapper.toDocument(savedAdvertisement));
+
 /*
             emailNotificationService.sendAdvertisementEmail(user.getEmail(), advertisement.getTitle(), user.getUsername());
 */
@@ -75,6 +83,7 @@ public class AdvertisementService {
             throw new RuntimeException("Ошибка при поиске объявления", e);
         }
     }
+
     public Page<AdvertisementResponse> getAdvertisements(int page, int size) {
         try {
             log.info("Запрос страницы {} с размером {}", page, size);
@@ -88,6 +97,7 @@ public class AdvertisementService {
             throw new RuntimeException("Ошибка при получении списка объявлений", e);
         }
     }
+
     public AdvertisementResponse updateAdvertisement(Long id, AdvertisementUpdateRequest request) {
         Advertisement adv = advertisementRepository.findById(id)
                 .orElseThrow(() -> new AdvertisementNotFoundException("Объявление не найдено"));
@@ -104,6 +114,8 @@ public class AdvertisementService {
         mapper.updateAdvertisementWithRequest(request, adv);
 
         Advertisement updated = advertisementRepository.save(adv);
+        searchService.saveToIndex(mapper.toDocument(updated));
+
         return mapper.toResponse(updated);
     }
     public void deleteAdvertisement(Long id) {
@@ -115,6 +127,7 @@ public class AdvertisementService {
         if (securityService.isAdmin()) {
             try {
                 advertisementRepository.deleteById(id);
+                searchService.deleteFromIndex(id);
                 log.info("Админ удалил объявление: {}", id);
             } catch (Exception e) {
                 log.error("Ошибка при удалении объявления админом: {}", id, e);
@@ -131,6 +144,7 @@ public class AdvertisementService {
 
             try {
                 advertisementRepository.deleteById(id);
+                searchService.deleteFromIndex(id);
                 log.info("Пользователь {} удалил своё объявление: {}", user.getUsername(), id);
             } catch (Exception e) {
                 log.error("Ошибка при удалении объявления пользователем: {}", id, e);
