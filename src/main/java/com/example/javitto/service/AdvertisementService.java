@@ -84,20 +84,6 @@ public class AdvertisementService {
         }
     }
 
-    public Page<AdvertisementResponse> getAdvertisements(int page, int size) {
-        try {
-            log.info("Запрос страницы {} с размером {}", page, size);
-
-            Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "dateOfCreation"));
-            Page<Advertisement> advertisementPage = advertisementRepository.findAll(pageable);
-
-            return advertisementPage.map(mapper::toResponse);
-        } catch (Exception e) {
-            log.error("Ошибка при получении списка объявлений: {}", e.getMessage(), e);
-            throw new RuntimeException("Ошибка при получении списка объявлений", e);
-        }
-    }
-
     public AdvertisementResponse updateAdvertisement(Long id, AdvertisementUpdateRequest request) {
         Advertisement adv = advertisementRepository.findById(id)
                 .orElseThrow(() -> new AdvertisementNotFoundException("Объявление не найдено"));

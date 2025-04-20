@@ -2,12 +2,16 @@ package com.example.javitto.service;
 
 import com.example.javitto.DTO.mapper.AdvertisementMapper;
 import com.example.javitto.DTO.request.AdvertisementCreateRequest;
+import com.example.javitto.DTO.request.AdvertisementUpdateRequest;
 import com.example.javitto.DTO.response.AdvertisementResponse;
+import com.example.javitto.elasticsearch.AdvertisementDocument;
+import com.example.javitto.elasticsearch.AdvertisementSearchService;
 import com.example.javitto.entity.Advertisement;
 import com.example.javitto.entity.User;
 import com.example.javitto.entity.enums.City;
 import com.example.javitto.entity.enums.ParentCategory;
 import com.example.javitto.entity.enums.SubCategory;
+import com.example.javitto.exception.AdvertisementNotFoundException;
 import com.example.javitto.repository.AdvertisementRepository;
 import com.example.javitto.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -17,6 +21,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 import org.springframework.security.access.AccessDeniedException;
 
 import java.math.BigDecimal;
@@ -24,8 +29,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -40,7 +44,8 @@ public class AdvertisementServiceTest {
     private SecurityService securityService;
     @Mock
     private EmailNotificationService emailNotificationService;
-
+    @Mock
+    private AdvertisementSearchService searchService;
     @InjectMocks
     private AdvertisementService advertisementService;
 
@@ -186,6 +191,56 @@ public class AdvertisementServiceTest {
         });
 
         verify(advertisementRepository, never()).deleteById(any());
+    }
+
+    @Test
+    void findById_shouldReturnAdvertisement_whenExists() {
+        when(advertisementRepository.findById(1L)).thenReturn(Optional.of(advertisement));
+        when(mapper.toResponse(advertisement)).thenReturn(new AdvertisementResponse());
+
+        AdvertisementResponse response = advertisementService.findById(1L);
+
+        assertNotNull(response);
+        verify(advertisementRepository).findById(1L);
+    }
+
+    @Test
+    void findById_shouldThrowException_whenNotFound() {
+        when(advertisementRepository.findById(1L)).thenReturn(Optional.empty());
+
+        assertThrows(AdvertisementNotFoundException.class, () -> {
+            advertisementService.findById(1L);
+        });
+    }
+
+    @Test
+    void updateAdvertisement_shouldUpdate_whenUserIsOwner() {
+        AdvertisementUpdateRequest updateRequest = new AdvertisementUpdateRequest();
+        when(advertisementRepository.findById(1L)).thenReturn(Optional.of(advertisement));
+        when(securityService.getCurrentUserKeycloakId()).thenReturn(user.getKeycloakId());
+        when(userRepository.findByKeycloakId(user.getKeycloakId())).thenReturn(Optional.of(user));
+        when(advertisementRepository.save(any())).thenReturn(advertisement);
+        when(mapper.toDocument(advertisement)).thenReturn(new AdvertisementDocument());
+        when(mapper.toResponse(advertisement)).thenReturn(new AdvertisementResponse());
+
+        AdvertisementResponse response = advertisementService.updateAdvertisement(1L, updateRequest);
+
+        assertNotNull(response);
+        verify(searchService).saveToIndex(any());
+    }
+
+    @Test
+    void updateAdvertisement_shouldThrowAccessDenied_whenUserNotOwnerOrAdmin() {
+        when(advertisementRepository.findById(1L)).thenReturn(Optional.of(advertisement));
+        when(securityService.getCurrentUserKeycloakId()).thenReturn(anotherUser.getKeycloakId());
+        when(userRepository.findByKeycloakId(anotherUser.getKeycloakId())).thenReturn(Optional.of(anotherUser));
+        when(securityService.isAdmin()).thenReturn(false);
+
+        AdvertisementUpdateRequest updateRequest = new AdvertisementUpdateRequest();
+
+        assertThrows(AccessDeniedException.class, () -> {
+            advertisementService.updateAdvertisement(1L, updateRequest);
+        });
     }
 
 
