@@ -138,7 +138,12 @@ public class AdvertisementService {
         }
     }
 
+    public void incrementViews(Long id) {
+        Advertisement adv = advertisementRepository.findById(id)
+                .orElseThrow(() -> new AdvertisementNotFoundException("Объявление не найдено"));
 
+        //TODO
+    }
 
 
 }
