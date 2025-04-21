@@ -3,6 +3,7 @@ package com.example.javitto.elasticsearch;
 import com.example.javitto.DTO.mapper.AdvertisementMapper;
 import com.example.javitto.DTO.response.AdvertisementPreviewResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -22,8 +23,7 @@ public class AdvertisementSearchService {
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "dateOfCreation"));
 
         if (query == null || query.trim().isEmpty()) {
-            Page<AdvertisementDocument> docs = searchRepository.findAll(pageable);
-            return docs.map(mapper::toPreview);
+            getLatest(page, size);
         }
 
         Page<AdvertisementDocument> searchResults = searchRepository
@@ -32,6 +32,7 @@ public class AdvertisementSearchService {
         return searchResults.map(mapper::toPreview);
     }
 
+    @Cacheable(value = "latest_ads", key = "#page + '-' + #size")
     public Page<AdvertisementPreviewResponse> getLatest(int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "dateOfCreation"));
 

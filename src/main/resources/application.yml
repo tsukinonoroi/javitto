@@ -11,7 +11,7 @@ spring:
     redis:
       host: redis
       port: 6379
-      time-to-live: 600
+      time-to-live: 120s
 
   elasticsearch:
     uris: http://localhost:9200
