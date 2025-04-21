@@ -53,6 +53,14 @@ public class AdvertisementController {
         }
     }
 
+    @GetMapping("/main")
+    public ResponseEntity<Page<AdvertisementPreviewResponse>> getMainPage(
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "10") int size) {
+
+        return ResponseEntity.ok(searchService.getLatest(page, size));
+    }
+
     @GetMapping("/search")
     public ResponseEntity<Page<AdvertisementPreviewResponse>> searchAdvertisements(
             @RequestParam(required = false) String query,

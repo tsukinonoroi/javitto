@@ -32,6 +32,13 @@ public class AdvertisementSearchService {
         return searchResults.map(mapper::toPreview);
     }
 
+    public Page<AdvertisementPreviewResponse> getLatest(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "dateOfCreation"));
+
+        Page<AdvertisementDocument> docs = searchRepository.findAll(pageable);
+        return docs.map(mapper::toPreview);
+    }
+
 
     public void saveToIndex(AdvertisementDocument doc) {
         searchRepository.save(doc);
