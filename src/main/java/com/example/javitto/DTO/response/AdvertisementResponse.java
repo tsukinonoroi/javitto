@@ -28,4 +28,5 @@ public class AdvertisementResponse {
     private City city;
     private List<String> photoUrl;
     private String username;
+    private Long viewsCount;
 }
