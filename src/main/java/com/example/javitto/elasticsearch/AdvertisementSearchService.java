@@ -3,6 +3,7 @@ package com.example.javitto.elasticsearch;
 import com.example.javitto.DTO.mapper.AdvertisementMapper;
 import com.example.javitto.DTO.response.AdvertisementPreviewResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -40,11 +41,12 @@ public class AdvertisementSearchService {
         return docs.map(mapper::toPreview);
     }
 
-
+    @CacheEvict(value = "latest_ads", allEntries = true)
     public void saveToIndex(AdvertisementDocument doc) {
         searchRepository.save(doc);
     }
 
+    @CacheEvict(value = "latest_ads", allEntries = true)
     public void deleteFromIndex(Long id) {
         searchRepository.deleteById(id);
     }
