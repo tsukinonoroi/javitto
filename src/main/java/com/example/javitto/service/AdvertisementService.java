@@ -3,9 +3,7 @@ package com.example.javitto.service;
 import com.example.javitto.DTO.mapper.AdvertisementMapper;
 import com.example.javitto.DTO.request.AdvertisementCreateRequest;
 import com.example.javitto.DTO.request.AdvertisementUpdateRequest;
-import com.example.javitto.DTO.response.AdvertisementPreviewResponse;
 import com.example.javitto.DTO.response.AdvertisementResponse;
-import com.example.javitto.elasticsearch.AdvertisementDocument;
 import com.example.javitto.elasticsearch.AdvertisementSearchRepository;
 import com.example.javitto.elasticsearch.AdvertisementSearchService;
 import com.example.javitto.entity.Advertisement;
@@ -14,20 +12,14 @@ import com.example.javitto.exception.AdvertisementNotFoundException;
 import com.example.javitto.exception.UserNotFoundException;
 import com.example.javitto.repository.AdvertisementRepository;
 import com.example.javitto.repository.UserRepository;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -46,7 +38,7 @@ public class AdvertisementService {
         try {
             String keycloakId = securityService.getCurrentUserKeycloakId();
             User user = userRepository.findByKeycloakId(keycloakId)
-                    .orElseThrow(() -> new UserNotFoundException("Пользователь не найден"));
+                    .orElseThrow(() -> new UserNotFoundException(keycloakId));
             log.info("Найден пользователь: {}", user);
             Advertisement advertisement = mapper.toEntity(request);
             if (advertisement == null) {
@@ -76,7 +68,7 @@ public class AdvertisementService {
     public AdvertisementResponse findById(Long id) {
         try {
             Advertisement adv = advertisementRepository.findById(id)
-                    .orElseThrow(() -> new AdvertisementNotFoundException("Объявление не найдено"));
+                    .orElseThrow(() -> new AdvertisementNotFoundException(id));
             return mapper.toResponse(adv);
         } catch (AdvertisementNotFoundException e) {
             log.error("Объявление не найдено: id = {}", id);
@@ -89,12 +81,12 @@ public class AdvertisementService {
 
     public AdvertisementResponse updateAdvertisement(Long id, AdvertisementUpdateRequest request) {
         Advertisement adv = advertisementRepository.findById(id)
-                .orElseThrow(() -> new AdvertisementNotFoundException("Объявление не найдено"));
+                .orElseThrow(() -> new AdvertisementNotFoundException(id));
 
         String keycloakId = securityService.getCurrentUserKeycloakId();
 
         User user = userRepository.findByKeycloakId(keycloakId)
-                .orElseThrow(() -> new UserNotFoundException("Пользователь не найден"));
+                .orElseThrow(() -> new UserNotFoundException(keycloakId));
 
         if (!adv.getUser().equals(user) && !securityService.isAdmin()) {
             throw new AccessDeniedException("У вас нет прав на редактирование этого объявления");
@@ -111,7 +103,7 @@ public class AdvertisementService {
         String keycloakId = securityService.getCurrentUserKeycloakId();
 
         Advertisement adv = advertisementRepository.findById(id)
-                .orElseThrow(() -> new AdvertisementNotFoundException("Объявление не найдено"));
+                .orElseThrow(() -> new AdvertisementNotFoundException(id));
 
         if (securityService.isAdmin()) {
             try {
@@ -125,7 +117,7 @@ public class AdvertisementService {
             return;
         }
             User user = userRepository.findByKeycloakId(keycloakId)
-                    .orElseThrow(() -> new UserNotFoundException("Пользователь не найден"));
+                    .orElseThrow(() -> new UserNotFoundException(keycloakId));
 
             if (!adv.getUser().equals(user)) {
                 throw new AccessDeniedException("У вас нет прав для удаления этого объявления");
@@ -143,7 +135,7 @@ public class AdvertisementService {
 
     public void incrementViews(Long id) {
         Advertisement adv = advertisementRepository.findById(id)
-                .orElseThrow(() -> new AdvertisementNotFoundException("Объявление не найдено"));
+                .orElseThrow(() -> new AdvertisementNotFoundException(id));
 
         String keycloakId = securityService.getCurrentUserKeycloakId();
         String key = "viewed:" + keycloakId + ":" + id;
