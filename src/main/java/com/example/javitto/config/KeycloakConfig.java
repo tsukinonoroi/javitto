@@ -14,14 +14,18 @@ public class KeycloakConfig {
     private String clientId;
     @Value("${keycloak.secret}")
     private String secret;
+    @Value("${keycloak.serverUrl}")
+    private String serverUrl;
+    @Value("${keycloak.grantType}")
+    private String grantType;
     @Bean
     public Keycloak keycloakAdminClient() {
         return KeycloakBuilder.builder()
-                .serverUrl("http://localhost:8080")
+                .serverUrl(serverUrl)
                 .realm(realm)
                 .clientId(clientId)
                 .clientSecret(secret)
-                .grantType("client_credentials")
+                .grantType(grantType)
                 .build();
     }
 }

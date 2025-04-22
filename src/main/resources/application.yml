@@ -41,3 +41,5 @@ keycloak:
   clientId: javitto-client
   secret: W8IW0JcUF9e9ZKvjMsMeW7KphPf19lgz
   roleUser: client_user
+  serverUrl: http://localhost:8080
+  grantType: client_credentials
