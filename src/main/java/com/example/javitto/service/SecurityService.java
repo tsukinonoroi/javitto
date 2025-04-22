@@ -15,8 +15,10 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Slf4j
 public class SecurityService {
+
     @Value("${keycloak.clientId}")
     private String clientId;
+
     public String getCurrentUserKeycloakId() {
         Authentication authentication =
                 SecurityContextHolder.getContext().getAuthentication();

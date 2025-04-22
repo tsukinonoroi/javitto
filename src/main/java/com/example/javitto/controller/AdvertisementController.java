@@ -46,6 +46,7 @@ public class AdvertisementController {
     public ResponseEntity<AdvertisementResponse> getAdvertisement(@PathVariable Long id) {
         try {
             AdvertisementResponse response = advertisementService.findById(id);
+            advertisementService.incrementViews(id);
             return ResponseEntity.ok(response);
         }
         catch (AdvertisementNotFoundException e) {

@@ -25,6 +25,7 @@ spring:
     enabled: true
     locations: classpath:db/migration
     baseline-on-migrate: true
+    out-of-order: true
 
 server:
   port: 8082
@@ -38,5 +39,5 @@ jwt:
 keycloak:
   realm: javitto
   clientId: javitto-client
-  secret: 9M056uTjTnUZ9LUIWYcJYFUZIZbWDJFv
+  secret: W8IW0JcUF9e9ZKvjMsMeW7KphPf19lgz
   roleUser: client_user

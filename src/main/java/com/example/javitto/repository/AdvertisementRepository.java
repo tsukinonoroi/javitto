@@ -21,6 +21,5 @@ public interface AdvertisementRepository extends JpaRepository<Advertisement, Lo
     Optional<List<Advertisement>> findByUser_Username(String username);
 
     Optional<Advertisement> findByUser(User user);
-
     Optional<Advertisement> findByIdAndUser(Long id, User user);
 }

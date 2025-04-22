@@ -21,9 +21,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -38,6 +40,7 @@ public class AdvertisementService {
     private final EmailNotificationService emailNotificationService;
     private final AdvertisementSearchService searchService;
     private final AdvertisementSearchRepository searchRepository;
+    private final RedisTemplate<String, Object> redis;
 
     public AdvertisementResponse saveAdv(AdvertisementCreateRequest request) {
         try {
@@ -52,7 +55,7 @@ public class AdvertisementService {
             }
             advertisement.setUser(user);
             advertisement.setDateOfCreation(LocalDateTime.now());
-
+            advertisement.setViewsCount(0L);
             Advertisement savedAdvertisement = advertisementRepository.save(advertisement);
             searchService.saveToIndex(mapper.toDocument(savedAdvertisement));
 
@@ -142,7 +145,16 @@ public class AdvertisementService {
         Advertisement adv = advertisementRepository.findById(id)
                 .orElseThrow(() -> new AdvertisementNotFoundException("Объявление не найдено"));
 
-        //TODO
+        String keycloakId = securityService.getCurrentUserKeycloakId();
+        String key = "viewed:" + keycloakId + ":" + id;
+
+        Boolean alreadyViewed = redis.hasKey(key);
+        if (Boolean.FALSE.equals(alreadyViewed)) {
+            adv.setViewsCount(adv.getViewsCount()+1);
+            advertisementRepository.save(adv);
+
+            redis.opsForValue().set(key, "1", Duration.ofHours(1));
+        }
     }
 
 
