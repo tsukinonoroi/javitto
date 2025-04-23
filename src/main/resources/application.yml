@@ -44,3 +44,7 @@ keycloak:
   serverUrl: http://localhost:8080
   grantType: client_credentials
 
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html

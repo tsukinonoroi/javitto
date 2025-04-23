@@ -47,6 +47,7 @@ public class AuthService {
     }
 
     private UserRepresentation createUserRepresentation(RegistrationRequest request) {
+        log.info("Creating user representation for: {}", request);  // Логируем перед созданием
         UserRepresentation user = new UserRepresentation();
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
