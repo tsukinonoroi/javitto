@@ -43,3 +43,4 @@ keycloak:
   roleUser: client_user
   serverUrl: http://localhost:8080
   grantType: client_credentials
+

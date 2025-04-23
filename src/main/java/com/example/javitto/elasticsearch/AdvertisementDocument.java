@@ -18,9 +18,9 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 public class AdvertisementDocument {
     @Id
     private Long id;
-    @Field(type = FieldType.Text)
+    @Field(type = FieldType.Text, analyzer = "russian_analyzer")
     private String title;
-    @Field(type = FieldType.Text)
+    @Field(type = FieldType.Text, analyzer = "russian_analyzer")
     private String description;
     @Field(type = FieldType.Date)
     private String dateOfCreation;
