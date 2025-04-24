@@ -62,6 +62,21 @@ public class AdvertisementController {
             return ResponseEntity.badRequest().build();
         }
     }
+    //фильтрация
+    @Operation(summary = "Фильтрация объявлений", description = "Фильтрация по категории и/или городу с пагинацией")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Успешный ответ"),
+            @ApiResponse(responseCode = "400", description = "Неверные параметры запроса")
+    })
+    @GetMapping("/filter")
+    public Page<AdvertisementPreviewResponse> filterAdvertisements(
+            @RequestParam(defaultValue = "0") @Parameter(description = "Номер страницы") int page,
+            @RequestParam(defaultValue = "10") @Parameter(description = "Размер страницы") int size,
+            @RequestParam(required = false) @Parameter(description = "Родительская категория") String parentCategory,
+            @RequestParam(required = false) @Parameter(description = "Город") String city
+    ) {
+        return searchService.filter(page, size, parentCategory, city);
+    }
 
     @Operation(summary = "Получить главную страницу с объявлениями")
     @GetMapping("/main")
@@ -84,7 +99,7 @@ public class AdvertisementController {
     @PutMapping("/{id}")
     public ResponseEntity<AdvertisementResponse> updateAdvertisement(
             @Parameter(description = "ID объявления") @PathVariable Long id,
-            @RequestBody @Valid AdvertisementUpdateRequest request) {
+            @RequestBody AdvertisementUpdateRequest request) {
         AdvertisementResponse adv = advertisementService.updateAdvertisement(id, request);
         return ResponseEntity.ok().body(adv);
     }

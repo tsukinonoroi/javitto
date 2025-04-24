@@ -1,5 +1,9 @@
 package com.example.javitto.entity.enums;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
 public enum SubCategory {
     SMARTPHONES(ParentCategory.ELECTRONICS),
     LAPTOPS(ParentCategory.ELECTRONICS),

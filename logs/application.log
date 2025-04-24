@@ -240,3 +240,706 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 2025-04-25 00:11:35 - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-04-25 00:11:35 - HikariPool-1 - Shutdown initiated...
 2025-04-25 00:11:35 - HikariPool-1 - Shutdown completed.
+2025-04-25 00:30:42 - Starting JavittoApplication using Java 21.0.2 with PID 25656 (C:\Users\edemw\Desktop\javitto\target\classes started by edemw in C:\Users\edemw\Desktop\javitto)
+2025-04-25 00:30:42 - No active profile set, falling back to 1 default profile: "default"
+2025-04-25 00:30:43 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:30:43 - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2025-04-25 00:30:44 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 00:30:44 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 00:30:44 - Finished Spring Data repository scanning in 171 ms. Found 1 Elasticsearch repository interface.
+2025-04-25 00:30:44 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:30:44 - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2025-04-25 00:30:44 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 00:30:44 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 00:30:44 - Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2025-04-25 00:30:44 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:30:44 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-25 00:30:44 - Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2025-04-25 00:30:44 - Finished Spring Data repository scanning in 14 ms. Found 2 JPA repository interfaces.
+2025-04-25 00:30:44 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:30:44 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-25 00:30:44 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 00:30:44 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 00:30:44 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 00:30:44 - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-25 00:30:44 - Tomcat initialized with port 8082 (http)
+2025-04-25 00:30:44 - Initializing ProtocolHandler ["http-nio-8082"]
+2025-04-25 00:30:44 - Starting service [Tomcat]
+2025-04-25 00:30:44 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-25 00:30:44 - Initializing Spring embedded WebApplicationContext
+2025-04-25 00:30:44 - Root WebApplicationContext: initialization completed in 1892 ms
+2025-04-25 00:30:45 - HikariPool-1 - Starting...
+2025-04-25 00:30:45 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2dbcee03
+2025-04-25 00:30:45 - HikariPool-1 - Start completed.
+2025-04-25 00:30:45 - Database: jdbc:postgresql://localhost:5433/javitto (PostgreSQL 17.4)
+2025-04-25 00:30:45 - Successfully validated 4 migrations (execution time 00:00.049s)
+2025-04-25 00:30:45 - Current version of schema "public": 2.2
+2025-04-25 00:30:45 - outOfOrder mode is active. Migration of schema "public" may not be reproducible.
+2025-04-25 00:30:45 - Schema "public" is up to date. No migration necessary.
+2025-04-25 00:30:45 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-25 00:30:46 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-04-25 00:30:46 - HHH000026: Second-level cache disabled
+2025-04-25 00:30:46 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-25 00:30:46 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-25 00:30:47 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-25 00:30:47 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 00:30:48 - Unsupported type 'class java.lang.String' for date property 'dateOfCreation'.
+2025-04-25 00:30:49 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-25 00:30:49 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-25 00:30:49 - Starting ProtocolHandler ["http-nio-8082"]
+2025-04-25 00:30:49 - Tomcat started on port 8082 (http) with context path '/'
+2025-04-25 00:30:49 - Started JavittoApplication in 7.781 seconds (process running for 8.635)
+2025-04-25 00:34:11 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-25 00:34:11 - Initializing Servlet 'dispatcherServlet'
+2025-04-25 00:34:11 - Completed initialization in 1 ms
+2025-04-25 00:35:47 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 00:35:47 - Сохранили в БД объявление Iphone 14 pro
+2025-04-25 00:35:47 - Сохранили в документ elasticsearch объявление
+2025-04-25 00:38:21 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 00:38:21 - Сохранили в БД объявление Iphone 13 pro
+2025-04-25 00:38:21 - Сохранили в документ elasticsearch объявление
+2025-04-25 00:41:34 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 00:41:34 - Сохранили в БД объявление Дом, 60кв м
+2025-04-25 00:41:34 - Сохранили в документ elasticsearch объявление
+2025-04-25 00:41:44 - Найдены документы по запросу pro max
+2025-04-25 00:41:44 - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2025-04-25 00:43:36 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 00:43:36 - Сохранили в БД объявление Квартира, 30кв м
+2025-04-25 00:43:36 - Сохранили в документ elasticsearch объявление
+2025-04-25 00:45:45 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 00:45:45 - Сохранили в БД объявление Квартира, 30кв м
+2025-04-25 00:45:45 - Сохранили в документ elasticsearch объявление
+2025-04-25 00:48:08 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 00:48:08 - Сохранили в БД объявление Toyota Land Cruiser 200
+2025-04-25 00:48:08 - Сохранили в документ elasticsearch объявление
+2025-04-25 00:48:38 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-25 00:48:38 - Graceful shutdown complete
+2025-04-25 00:48:38 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 00:48:38 - HikariPool-1 - Shutdown initiated...
+2025-04-25 00:48:38 - HikariPool-1 - Shutdown completed.
+2025-04-25 00:48:58 - Starting JavittoApplication using Java 21.0.2 with PID 13400 (C:\Users\edemw\Desktop\javitto\target\classes started by edemw in C:\Users\edemw\Desktop\javitto)
+2025-04-25 00:48:58 - No active profile set, falling back to 1 default profile: "default"
+2025-04-25 00:48:59 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:48:59 - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2025-04-25 00:48:59 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 00:48:59 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 00:48:59 - Finished Spring Data repository scanning in 130 ms. Found 1 Elasticsearch repository interface.
+2025-04-25 00:48:59 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:48:59 - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2025-04-25 00:48:59 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 00:48:59 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 00:48:59 - Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2025-04-25 00:48:59 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:48:59 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-25 00:48:59 - Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2025-04-25 00:48:59 - Finished Spring Data repository scanning in 14 ms. Found 2 JPA repository interfaces.
+2025-04-25 00:48:59 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:48:59 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-25 00:48:59 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 00:48:59 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 00:48:59 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 00:48:59 - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-25 00:48:59 - Tomcat initialized with port 8082 (http)
+2025-04-25 00:48:59 - Initializing ProtocolHandler ["http-nio-8082"]
+2025-04-25 00:48:59 - Starting service [Tomcat]
+2025-04-25 00:48:59 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-25 00:48:59 - Initializing Spring embedded WebApplicationContext
+2025-04-25 00:48:59 - Root WebApplicationContext: initialization completed in 1688 ms
+2025-04-25 00:49:00 - HikariPool-1 - Starting...
+2025-04-25 00:49:00 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2dbcee03
+2025-04-25 00:49:00 - HikariPool-1 - Start completed.
+2025-04-25 00:49:00 - Database: jdbc:postgresql://localhost:5433/javitto (PostgreSQL 17.4)
+2025-04-25 00:49:00 - Successfully validated 4 migrations (execution time 00:00.025s)
+2025-04-25 00:49:00 - Current version of schema "public": 2.2
+2025-04-25 00:49:00 - outOfOrder mode is active. Migration of schema "public" may not be reproducible.
+2025-04-25 00:49:00 - Schema "public" is up to date. No migration necessary.
+2025-04-25 00:49:00 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-25 00:49:00 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-04-25 00:49:00 - HHH000026: Second-level cache disabled
+2025-04-25 00:49:01 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-25 00:49:01 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-25 00:49:02 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-25 00:49:02 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 00:49:02 - Unsupported type 'class java.lang.String' for date property 'dateOfCreation'.
+2025-04-25 00:49:03 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-25 00:49:03 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-25 00:49:04 - Starting ProtocolHandler ["http-nio-8082"]
+2025-04-25 00:49:04 - Tomcat started on port 8082 (http) with context path '/'
+2025-04-25 00:49:04 - Started JavittoApplication in 6.766 seconds (process running for 7.489)
+2025-04-25 00:52:29 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-25 00:52:29 - Graceful shutdown complete
+2025-04-25 00:52:29 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 00:52:29 - HikariPool-1 - Shutdown initiated...
+2025-04-25 00:52:29 - HikariPool-1 - Shutdown completed.
+2025-04-25 00:52:34 - Starting JavittoApplication using Java 21.0.2 with PID 6492 (C:\Users\edemw\Desktop\javitto\target\classes started by edemw in C:\Users\edemw\Desktop\javitto)
+2025-04-25 00:52:34 - No active profile set, falling back to 1 default profile: "default"
+2025-04-25 00:52:35 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:52:35 - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2025-04-25 00:52:35 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 00:52:35 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 00:52:35 - Finished Spring Data repository scanning in 130 ms. Found 1 Elasticsearch repository interface.
+2025-04-25 00:52:35 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:52:35 - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2025-04-25 00:52:35 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 00:52:35 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 00:52:35 - Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2025-04-25 00:52:35 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:52:35 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-25 00:52:35 - Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2025-04-25 00:52:35 - Finished Spring Data repository scanning in 14 ms. Found 2 JPA repository interfaces.
+2025-04-25 00:52:35 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:52:35 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-25 00:52:35 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 00:52:35 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 00:52:35 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 00:52:35 - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-25 00:52:35 - Tomcat initialized with port 8082 (http)
+2025-04-25 00:52:35 - Initializing ProtocolHandler ["http-nio-8082"]
+2025-04-25 00:52:35 - Starting service [Tomcat]
+2025-04-25 00:52:35 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-25 00:52:35 - Initializing Spring embedded WebApplicationContext
+2025-04-25 00:52:35 - Root WebApplicationContext: initialization completed in 1661 ms
+2025-04-25 00:52:36 - HikariPool-1 - Starting...
+2025-04-25 00:52:36 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6cd6698b
+2025-04-25 00:52:36 - HikariPool-1 - Start completed.
+2025-04-25 00:52:36 - Database: jdbc:postgresql://localhost:5433/javitto (PostgreSQL 17.4)
+2025-04-25 00:52:36 - Successfully validated 4 migrations (execution time 00:00.024s)
+2025-04-25 00:52:36 - Current version of schema "public": 2.2
+2025-04-25 00:52:36 - outOfOrder mode is active. Migration of schema "public" may not be reproducible.
+2025-04-25 00:52:36 - Schema "public" is up to date. No migration necessary.
+2025-04-25 00:52:36 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-25 00:52:36 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-04-25 00:52:36 - HHH000026: Second-level cache disabled
+2025-04-25 00:52:37 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-25 00:52:37 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-25 00:52:38 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-25 00:52:38 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 00:52:38 - Unsupported type 'class java.lang.String' for date property 'dateOfCreation'.
+2025-04-25 00:52:39 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-25 00:52:39 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-25 00:52:40 - Starting ProtocolHandler ["http-nio-8082"]
+2025-04-25 00:52:40 - Tomcat started on port 8082 (http) with context path '/'
+2025-04-25 00:52:40 - Started JavittoApplication in 6.788 seconds (process running for 7.494)
+2025-04-25 00:53:16 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-25 00:53:16 - Initializing Servlet 'dispatcherServlet'
+2025-04-25 00:53:16 - Completed initialization in 2 ms
+2025-04-25 00:53:16 - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2025-04-25 00:56:03 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 00:56:03 - Сохранили в БД объявление Toyota Land Cruiser 200
+2025-04-25 00:56:03 - Сохранили в документ elasticsearch объявление
+2025-04-25 00:57:57 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-25 00:57:57 - Graceful shutdown complete
+2025-04-25 00:57:57 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 00:57:57 - HikariPool-1 - Shutdown initiated...
+2025-04-25 00:57:57 - HikariPool-1 - Shutdown completed.
+2025-04-25 00:58:19 - Starting JavittoApplication using Java 21.0.2 with PID 13192 (C:\Users\edemw\Desktop\javitto\target\classes started by edemw in C:\Users\edemw\Desktop\javitto)
+2025-04-25 00:58:19 - No active profile set, falling back to 1 default profile: "default"
+2025-04-25 00:58:20 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:58:20 - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2025-04-25 00:58:20 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 00:58:20 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 00:58:20 - Finished Spring Data repository scanning in 141 ms. Found 1 Elasticsearch repository interface.
+2025-04-25 00:58:20 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:58:20 - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2025-04-25 00:58:20 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 00:58:20 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 00:58:20 - Finished Spring Data repository scanning in 12 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2025-04-25 00:58:20 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:58:20 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-25 00:58:20 - Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2025-04-25 00:58:20 - Finished Spring Data repository scanning in 15 ms. Found 2 JPA repository interfaces.
+2025-04-25 00:58:20 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 00:58:20 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-25 00:58:20 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 00:58:20 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 00:58:20 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 00:58:20 - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-04-25 00:58:21 - Tomcat initialized with port 8082 (http)
+2025-04-25 00:58:21 - Initializing ProtocolHandler ["http-nio-8082"]
+2025-04-25 00:58:21 - Starting service [Tomcat]
+2025-04-25 00:58:21 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-25 00:58:21 - Initializing Spring embedded WebApplicationContext
+2025-04-25 00:58:21 - Root WebApplicationContext: initialization completed in 1759 ms
+2025-04-25 00:58:21 - HikariPool-1 - Starting...
+2025-04-25 00:58:22 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3945886e
+2025-04-25 00:58:22 - HikariPool-1 - Start completed.
+2025-04-25 00:58:22 - Database: jdbc:postgresql://localhost:5433/javitto (PostgreSQL 17.4)
+2025-04-25 00:58:22 - Successfully validated 4 migrations (execution time 00:00.026s)
+2025-04-25 00:58:22 - Current version of schema "public": 2.2
+2025-04-25 00:58:22 - outOfOrder mode is active. Migration of schema "public" may not be reproducible.
+2025-04-25 00:58:22 - Schema "public" is up to date. No migration necessary.
+2025-04-25 00:58:22 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-25 00:58:22 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-04-25 00:58:22 - HHH000026: Second-level cache disabled
+2025-04-25 00:58:22 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-25 00:58:22 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-25 00:58:23 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-25 00:58:23 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 00:58:24 - Unsupported type 'class java.lang.String' for date property 'dateOfCreation'.
+2025-04-25 00:58:24 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-25 00:58:25 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-25 00:58:25 - Starting ProtocolHandler ["http-nio-8082"]
+2025-04-25 00:58:25 - Tomcat started on port 8082 (http) with context path '/'
+2025-04-25 00:58:25 - Started JavittoApplication in 6.793 seconds (process running for 7.563)
+2025-04-25 00:58:57 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-25 00:58:57 - Initializing Servlet 'dispatcherServlet'
+2025-04-25 00:58:57 - Completed initialization in 3 ms
+2025-04-25 00:58:58 - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2025-04-25 00:59:15 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 00:59:15 - Сохранили в БД объявление Toyota Land Cruiser 200
+2025-04-25 00:59:15 - Сохранили в документ elasticsearch объявление
+2025-04-25 01:00:33 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:00:33 - SQL Error: 0, SQLState: 22003
+2025-04-25 01:00:33 - ERROR: numeric field overflow
+  Подробности: A field with precision 10, scale 2 must round to an absolute value less than 10^8.
+2025-04-25 01:00:33 - Ошибка при сохранении объявления: could not execute statement [ERROR: numeric field overflow
+  Подробности: A field with precision 10, scale 2 must round to an absolute value less than 10^8.] [insert into advertisement (address,city,cost,date_of_creation,description,parent_category,sub_category,title,user_id,views_count) values (?,?,?,?,?,?,?,?,?,?)]; SQL [insert into advertisement (address,city,cost,date_of_creation,description,parent_category,sub_category,title,user_id,views_count) values (?,?,?,?,?,?,?,?,?,?)]
+2025-04-25 01:00:45 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:00:45 - SQL Error: 0, SQLState: 22003
+2025-04-25 01:00:45 - ERROR: numeric field overflow
+  Подробности: A field with precision 10, scale 2 must round to an absolute value less than 10^8.
+2025-04-25 01:00:45 - Ошибка при сохранении объявления: could not execute statement [ERROR: numeric field overflow
+  Подробности: A field with precision 10, scale 2 must round to an absolute value less than 10^8.] [insert into advertisement (address,city,cost,date_of_creation,description,parent_category,sub_category,title,user_id,views_count) values (?,?,?,?,?,?,?,?,?,?)]; SQL [insert into advertisement (address,city,cost,date_of_creation,description,parent_category,sub_category,title,user_id,views_count) values (?,?,?,?,?,?,?,?,?,?)]
+2025-04-25 01:00:56 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:00:56 - SQL Error: 0, SQLState: 22003
+2025-04-25 01:00:56 - ERROR: numeric field overflow
+  Подробности: A field with precision 10, scale 2 must round to an absolute value less than 10^8.
+2025-04-25 01:00:56 - Ошибка при сохранении объявления: could not execute statement [ERROR: numeric field overflow
+  Подробности: A field with precision 10, scale 2 must round to an absolute value less than 10^8.] [insert into advertisement (address,city,cost,date_of_creation,description,parent_category,sub_category,title,user_id,views_count) values (?,?,?,?,?,?,?,?,?,?)]; SQL [insert into advertisement (address,city,cost,date_of_creation,description,parent_category,sub_category,title,user_id,views_count) values (?,?,?,?,?,?,?,?,?,?)]
+2025-04-25 01:01:58 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:01:58 - SQL Error: 0, SQLState: 22003
+2025-04-25 01:01:58 - ERROR: numeric field overflow
+  Подробности: A field with precision 10, scale 2 must round to an absolute value less than 10^8.
+2025-04-25 01:01:58 - Ошибка при сохранении объявления: could not execute statement [ERROR: numeric field overflow
+  Подробности: A field with precision 10, scale 2 must round to an absolute value less than 10^8.] [insert into advertisement (address,city,cost,date_of_creation,description,parent_category,sub_category,title,user_id,views_count) values (?,?,?,?,?,?,?,?,?,?)]; SQL [insert into advertisement (address,city,cost,date_of_creation,description,parent_category,sub_category,title,user_id,views_count) values (?,?,?,?,?,?,?,?,?,?)]
+2025-04-25 01:02:02 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:02:02 - SQL Error: 0, SQLState: 22003
+2025-04-25 01:02:02 - ERROR: numeric field overflow
+  Подробности: A field with precision 10, scale 2 must round to an absolute value less than 10^8.
+2025-04-25 01:02:02 - Ошибка при сохранении объявления: could not execute statement [ERROR: numeric field overflow
+  Подробности: A field with precision 10, scale 2 must round to an absolute value less than 10^8.] [insert into advertisement (address,city,cost,date_of_creation,description,parent_category,sub_category,title,user_id,views_count) values (?,?,?,?,?,?,?,?,?,?)]; SQL [insert into advertisement (address,city,cost,date_of_creation,description,parent_category,sub_category,title,user_id,views_count) values (?,?,?,?,?,?,?,?,?,?)]
+2025-04-25 01:02:05 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:02:05 - SQL Error: 0, SQLState: 22003
+2025-04-25 01:02:05 - ERROR: numeric field overflow
+  Подробности: A field with precision 10, scale 2 must round to an absolute value less than 10^8.
+2025-04-25 01:02:05 - Ошибка при сохранении объявления: could not execute statement [ERROR: numeric field overflow
+  Подробности: A field with precision 10, scale 2 must round to an absolute value less than 10^8.] [insert into advertisement (address,city,cost,date_of_creation,description,parent_category,sub_category,title,user_id,views_count) values (?,?,?,?,?,?,?,?,?,?)]; SQL [insert into advertisement (address,city,cost,date_of_creation,description,parent_category,sub_category,title,user_id,views_count) values (?,?,?,?,?,?,?,?,?,?)]
+2025-04-25 01:02:09 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:02:09 - Сохранили в БД объявление Большой дом, 500 кв. м.
+2025-04-25 01:02:09 - Сохранили в документ elasticsearch объявление
+2025-04-25 01:03:10 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-25 01:03:10 - Graceful shutdown complete
+2025-04-25 01:03:10 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 01:03:10 - HikariPool-1 - Shutdown initiated...
+2025-04-25 01:03:10 - HikariPool-1 - Shutdown completed.
+2025-04-25 01:12:46 - Starting JavittoApplication using Java 21.0.2 with PID 23576 (C:\Users\edemw\Desktop\javitto\target\classes started by edemw in C:\Users\edemw\Desktop\javitto)
+2025-04-25 01:12:46 - No active profile set, falling back to 1 default profile: "default"
+2025-04-25 01:12:47 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:12:47 - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2025-04-25 01:12:47 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 01:12:47 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 01:12:47 - Finished Spring Data repository scanning in 204 ms. Found 1 Elasticsearch repository interface.
+2025-04-25 01:12:47 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:12:47 - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2025-04-25 01:12:47 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 01:12:47 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 01:12:47 - Finished Spring Data repository scanning in 7 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2025-04-25 01:12:47 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:12:47 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-25 01:12:47 - Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2025-04-25 01:12:47 - Finished Spring Data repository scanning in 16 ms. Found 2 JPA repository interfaces.
+2025-04-25 01:12:48 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:12:48 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-25 01:12:48 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 01:12:48 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 01:12:48 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 01:12:48 - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-04-25 01:12:48 - Tomcat initialized with port 8082 (http)
+2025-04-25 01:12:48 - Initializing ProtocolHandler ["http-nio-8082"]
+2025-04-25 01:12:48 - Starting service [Tomcat]
+2025-04-25 01:12:48 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-25 01:12:48 - Initializing Spring embedded WebApplicationContext
+2025-04-25 01:12:48 - Root WebApplicationContext: initialization completed in 2208 ms
+2025-04-25 01:12:49 - HikariPool-1 - Starting...
+2025-04-25 01:12:49 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6cd6698b
+2025-04-25 01:12:49 - HikariPool-1 - Start completed.
+2025-04-25 01:12:49 - Database: jdbc:postgresql://localhost:5433/javitto (PostgreSQL 17.4)
+2025-04-25 01:12:49 - Successfully validated 4 migrations (execution time 00:00.037s)
+2025-04-25 01:12:49 - Current version of schema "public": 2.2
+2025-04-25 01:12:49 - outOfOrder mode is active. Migration of schema "public" may not be reproducible.
+2025-04-25 01:12:49 - Schema "public" is up to date. No migration necessary.
+2025-04-25 01:12:50 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-25 01:12:50 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-04-25 01:12:50 - HHH000026: Second-level cache disabled
+2025-04-25 01:12:50 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-25 01:12:50 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-25 01:12:51 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-25 01:12:51 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 01:12:52 - Unsupported type 'class java.lang.String' for date property 'dateOfCreation'.
+2025-04-25 01:12:53 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-25 01:12:53 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-25 01:12:54 - Starting ProtocolHandler ["http-nio-8082"]
+2025-04-25 01:12:54 - Tomcat started on port 8082 (http) with context path '/'
+2025-04-25 01:12:54 - Started JavittoApplication in 8.348 seconds (process running for 9.38)
+2025-04-25 01:13:01 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-25 01:13:01 - Initializing Servlet 'dispatcherServlet'
+2025-04-25 01:13:02 - Completed initialization in 2 ms
+2025-04-25 01:13:02 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:13:02 - Сохранили в БД объявление Большой дом, 500 кв. м.
+2025-04-25 01:13:03 - Сохранили в документ elasticsearch объявление
+2025-04-25 01:13:33 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:13:33 - Сохранили в БД объявление Toyota Land Cruiser 200
+2025-04-25 01:13:33 - Сохранили в документ elasticsearch объявление
+2025-04-25 01:18:09 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-25 01:18:09 - Graceful shutdown complete
+2025-04-25 01:18:09 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 01:18:09 - HikariPool-1 - Shutdown initiated...
+2025-04-25 01:18:09 - HikariPool-1 - Shutdown completed.
+2025-04-25 01:20:20 - Starting JavittoApplication using Java 21.0.2 with PID 26460 (C:\Users\edemw\Desktop\javitto\target\classes started by edemw in C:\Users\edemw\Desktop\javitto)
+2025-04-25 01:20:20 - No active profile set, falling back to 1 default profile: "default"
+2025-04-25 01:20:21 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:20:21 - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2025-04-25 01:20:21 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 01:20:21 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 01:20:21 - Finished Spring Data repository scanning in 187 ms. Found 1 Elasticsearch repository interface.
+2025-04-25 01:20:21 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:20:21 - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2025-04-25 01:20:21 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 01:20:21 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 01:20:21 - Finished Spring Data repository scanning in 7 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2025-04-25 01:20:21 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:20:21 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-25 01:20:21 - Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2025-04-25 01:20:21 - Finished Spring Data repository scanning in 16 ms. Found 2 JPA repository interfaces.
+2025-04-25 01:20:21 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:20:21 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-25 01:20:21 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 01:20:21 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 01:20:21 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 01:20:21 - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-04-25 01:20:22 - Tomcat initialized with port 8082 (http)
+2025-04-25 01:20:22 - Initializing ProtocolHandler ["http-nio-8082"]
+2025-04-25 01:20:22 - Starting service [Tomcat]
+2025-04-25 01:20:22 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-25 01:20:22 - Initializing Spring embedded WebApplicationContext
+2025-04-25 01:20:22 - Root WebApplicationContext: initialization completed in 1918 ms
+2025-04-25 01:20:23 - HikariPool-1 - Starting...
+2025-04-25 01:20:23 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@212c0aff
+2025-04-25 01:20:23 - HikariPool-1 - Start completed.
+2025-04-25 01:20:23 - Database: jdbc:postgresql://localhost:5433/javitto (PostgreSQL 17.4)
+2025-04-25 01:20:23 - Successfully validated 4 migrations (execution time 00:00.029s)
+2025-04-25 01:20:23 - Current version of schema "public": 2.2
+2025-04-25 01:20:23 - outOfOrder mode is active. Migration of schema "public" may not be reproducible.
+2025-04-25 01:20:23 - Schema "public" is up to date. No migration necessary.
+2025-04-25 01:20:23 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-25 01:20:23 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-04-25 01:20:23 - HHH000026: Second-level cache disabled
+2025-04-25 01:20:23 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-25 01:20:24 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-25 01:20:25 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-25 01:20:25 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 01:20:25 - Unsupported type 'class java.lang.String' for date property 'dateOfCreation'.
+2025-04-25 01:20:26 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-25 01:20:27 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-25 01:20:27 - Starting ProtocolHandler ["http-nio-8082"]
+2025-04-25 01:20:27 - Tomcat started on port 8082 (http) with context path '/'
+2025-04-25 01:20:27 - Started JavittoApplication in 7.838 seconds (process running for 8.78)
+2025-04-25 01:20:48 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-25 01:20:48 - Initializing Servlet 'dispatcherServlet'
+2025-04-25 01:20:48 - Completed initialization in 3 ms
+2025-04-25 01:20:49 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:20:49 - Сохранили в БД объявление Большой дом, 500 кв. м.
+2025-04-25 01:20:50 - Сохранили в документ elasticsearch объявление
+2025-04-25 01:21:02 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:21:02 - Сохранили в БД объявление Toyota Land Cruiser 200
+2025-04-25 01:21:02 - Сохранили в документ elasticsearch объявление
+2025-04-25 01:21:39 - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2025-04-25 01:21:59 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:21:59 - Сохранили в БД объявление Toyota Land Cruiser 200
+2025-04-25 01:21:59 - Сохранили в документ elasticsearch объявление
+2025-04-25 01:21:59 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:21:59 - Сохранили в БД объявление Toyota Land Cruiser 200
+2025-04-25 01:21:59 - Сохранили в документ elasticsearch объявление
+2025-04-25 01:22:00 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:22:00 - Сохранили в БД объявление Toyota Land Cruiser 200
+2025-04-25 01:22:00 - Сохранили в документ elasticsearch объявление
+2025-04-25 01:22:11 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:22:11 - SQL Error: 0, SQLState: 22003
+2025-04-25 01:22:11 - ERROR: numeric field overflow
+  Подробности: A field with precision 10, scale 2 must round to an absolute value less than 10^8.
+2025-04-25 01:22:12 - Ошибка при сохранении объявления: could not execute statement [ERROR: numeric field overflow
+  Подробности: A field with precision 10, scale 2 must round to an absolute value less than 10^8.] [insert into advertisement (address,city,cost,date_of_creation,description,parent_category,sub_category,title,user_id,views_count) values (?,?,?,?,?,?,?,?,?,?)]; SQL [insert into advertisement (address,city,cost,date_of_creation,description,parent_category,sub_category,title,user_id,views_count) values (?,?,?,?,?,?,?,?,?,?)]
+2025-04-25 01:22:18 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:22:18 - Сохранили в БД объявление Toyota Land Cruiser 300
+2025-04-25 01:22:18 - Сохранили в документ elasticsearch объявление
+2025-04-25 01:22:34 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:22:34 - Сохранили в БД объявление Toyota Land Cruiser 300
+2025-04-25 01:22:35 - Сохранили в документ elasticsearch объявление
+2025-04-25 01:23:00 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:23:00 - Сохранили в БД объявление Toyota Land Cruiser 100
+2025-04-25 01:23:00 - Сохранили в документ elasticsearch объявление
+2025-04-25 01:23:03 - Найден пользователь: User(id=12, keycloakId=6d64fa27-038b-4d7d-a782-0aeb1d80518a, username=test, email=test@example.com, dateOfRegistration=2025-04-24)
+2025-04-25 01:23:03 - Сохранили в БД объявление Toyota Land Cruiser 100
+2025-04-25 01:23:03 - Сохранили в документ elasticsearch объявление
+2025-04-25 01:24:45 - Пользователь test удалил своё объявление: 49
+2025-04-25 01:30:08 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-25 01:30:08 - Graceful shutdown complete
+2025-04-25 01:30:08 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 01:30:08 - HikariPool-1 - Shutdown initiated...
+2025-04-25 01:30:08 - HikariPool-1 - Shutdown completed.
+2025-04-25 01:50:05 - Starting JavittoApplication using Java 21.0.2 with PID 4892 (C:\Users\edemw\Desktop\javitto\target\classes started by edemw in C:\Users\edemw\Desktop\javitto)
+2025-04-25 01:50:05 - No active profile set, falling back to 1 default profile: "default"
+2025-04-25 01:50:06 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:50:06 - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2025-04-25 01:50:06 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 01:50:06 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 01:50:06 - Finished Spring Data repository scanning in 171 ms. Found 1 Elasticsearch repository interface.
+2025-04-25 01:50:06 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:50:06 - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2025-04-25 01:50:06 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 01:50:06 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 01:50:06 - Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2025-04-25 01:50:06 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:50:06 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-25 01:50:06 - Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2025-04-25 01:50:06 - Finished Spring Data repository scanning in 19 ms. Found 2 JPA repository interfaces.
+2025-04-25 01:50:06 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:50:06 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-25 01:50:06 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 01:50:06 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 01:50:06 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 01:50:06 - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-25 01:50:07 - Tomcat initialized with port 8082 (http)
+2025-04-25 01:50:07 - Initializing ProtocolHandler ["http-nio-8082"]
+2025-04-25 01:50:07 - Starting service [Tomcat]
+2025-04-25 01:50:07 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-25 01:50:07 - Initializing Spring embedded WebApplicationContext
+2025-04-25 01:50:07 - Root WebApplicationContext: initialization completed in 1869 ms
+2025-04-25 01:50:08 - HikariPool-1 - Starting...
+2025-04-25 01:50:08 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5ac7550a
+2025-04-25 01:50:08 - HikariPool-1 - Start completed.
+2025-04-25 01:50:08 - Database: jdbc:postgresql://localhost:5433/javitto (PostgreSQL 17.4)
+2025-04-25 01:50:08 - Successfully validated 4 migrations (execution time 00:00.031s)
+2025-04-25 01:50:08 - Current version of schema "public": 2.2
+2025-04-25 01:50:08 - outOfOrder mode is active. Migration of schema "public" may not be reproducible.
+2025-04-25 01:50:08 - Schema "public" is up to date. No migration necessary.
+2025-04-25 01:50:08 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-25 01:50:08 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-04-25 01:50:08 - HHH000026: Second-level cache disabled
+2025-04-25 01:50:08 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-25 01:50:09 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-25 01:50:09 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-25 01:50:09 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 01:50:10 - Unsupported type 'class java.lang.String' for date property 'dateOfCreation'.
+2025-04-25 01:50:11 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-25 01:50:12 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-25 01:50:12 - Starting ProtocolHandler ["http-nio-8082"]
+2025-04-25 01:50:12 - Tomcat started on port 8082 (http) with context path '/'
+2025-04-25 01:50:12 - Started JavittoApplication in 7.602 seconds (process running for 8.454)
+2025-04-25 01:50:25 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-25 01:50:25 - Initializing Servlet 'dispatcherServlet'
+2025-04-25 01:50:25 - Completed initialization in 1 ms
+2025-04-25 01:50:27 - Init duration for springdoc-openapi is: 431 ms
+2025-04-25 01:50:42 - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2025-04-25 01:51:43 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-25 01:51:43 - Graceful shutdown complete
+2025-04-25 01:51:43 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 01:51:43 - HikariPool-1 - Shutdown initiated...
+2025-04-25 01:51:43 - HikariPool-1 - Shutdown completed.
+2025-04-25 01:51:49 - Starting JavittoApplication using Java 21.0.2 with PID 23252 (C:\Users\edemw\Desktop\javitto\target\classes started by edemw in C:\Users\edemw\Desktop\javitto)
+2025-04-25 01:51:49 - No active profile set, falling back to 1 default profile: "default"
+2025-04-25 01:51:50 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:51:50 - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2025-04-25 01:51:50 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 01:51:50 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 01:51:50 - Finished Spring Data repository scanning in 200 ms. Found 1 Elasticsearch repository interface.
+2025-04-25 01:51:50 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:51:50 - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2025-04-25 01:51:50 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 01:51:50 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 01:51:50 - Finished Spring Data repository scanning in 12 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2025-04-25 01:51:50 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:51:50 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-25 01:51:50 - Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2025-04-25 01:51:50 - Finished Spring Data repository scanning in 15 ms. Found 2 JPA repository interfaces.
+2025-04-25 01:51:50 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 01:51:50 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-25 01:51:50 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 01:51:50 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 01:51:50 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 01:51:50 - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-04-25 01:51:51 - Tomcat initialized with port 8082 (http)
+2025-04-25 01:51:51 - Initializing ProtocolHandler ["http-nio-8082"]
+2025-04-25 01:51:51 - Starting service [Tomcat]
+2025-04-25 01:51:51 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-25 01:51:51 - Initializing Spring embedded WebApplicationContext
+2025-04-25 01:51:51 - Root WebApplicationContext: initialization completed in 2257 ms
+2025-04-25 01:51:52 - HikariPool-1 - Starting...
+2025-04-25 01:51:52 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@44dcc0e4
+2025-04-25 01:51:52 - HikariPool-1 - Start completed.
+2025-04-25 01:51:52 - Database: jdbc:postgresql://localhost:5433/javitto (PostgreSQL 17.4)
+2025-04-25 01:51:52 - Successfully validated 4 migrations (execution time 00:00.043s)
+2025-04-25 01:51:52 - Current version of schema "public": 2.2
+2025-04-25 01:51:52 - outOfOrder mode is active. Migration of schema "public" may not be reproducible.
+2025-04-25 01:51:52 - Schema "public" is up to date. No migration necessary.
+2025-04-25 01:51:52 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-25 01:51:52 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-04-25 01:51:53 - HHH000026: Second-level cache disabled
+2025-04-25 01:51:53 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-25 01:51:53 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-25 01:51:54 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-25 01:51:54 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 01:51:55 - Unsupported type 'class java.lang.String' for date property 'dateOfCreation'.
+2025-04-25 01:51:56 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-25 01:51:56 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-25 01:51:57 - Starting ProtocolHandler ["http-nio-8082"]
+2025-04-25 01:51:57 - Tomcat started on port 8082 (http) with context path '/'
+2025-04-25 01:51:57 - Started JavittoApplication in 8.376 seconds (process running for 9.287)
+2025-04-25 01:51:57 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-25 01:51:57 - Initializing Servlet 'dispatcherServlet'
+2025-04-25 01:51:57 - Completed initialization in 1 ms
+2025-04-25 01:51:57 - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2025-04-25 02:00:59 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-25 02:00:59 - Graceful shutdown complete
+2025-04-25 02:00:59 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 02:00:59 - HikariPool-1 - Shutdown initiated...
+2025-04-25 02:00:59 - HikariPool-1 - Shutdown completed.
+2025-04-25 02:01:05 - Starting JavittoApplication using Java 21.0.2 with PID 3824 (C:\Users\edemw\Desktop\javitto\target\classes started by edemw in C:\Users\edemw\Desktop\javitto)
+2025-04-25 02:01:05 - No active profile set, falling back to 1 default profile: "default"
+2025-04-25 02:01:06 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 02:01:06 - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2025-04-25 02:01:06 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 02:01:06 - Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-04-25 02:01:06 - Finished Spring Data repository scanning in 140 ms. Found 1 Elasticsearch repository interface.
+2025-04-25 02:01:06 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 02:01:06 - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2025-04-25 02:01:06 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 02:01:06 - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-04-25 02:01:06 - Finished Spring Data repository scanning in 7 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2025-04-25 02:01:06 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 02:01:06 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-25 02:01:06 - Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: jakarta.persistence.Entity, jakarta.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository
+2025-04-25 02:01:06 - Finished Spring Data repository scanning in 21 ms. Found 2 JPA repository interfaces.
+2025-04-25 02:01:06 - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-25 02:01:06 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-25 02:01:06 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.elasticsearch.AdvertisementSearchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 02:01:06 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.AdvertisementRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 02:01:06 - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.javitto.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-25 02:01:06 - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-25 02:01:07 - Tomcat initialized with port 8082 (http)
+2025-04-25 02:01:07 - Initializing ProtocolHandler ["http-nio-8082"]
+2025-04-25 02:01:07 - Starting service [Tomcat]
+2025-04-25 02:01:07 - Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-04-25 02:01:07 - Initializing Spring embedded WebApplicationContext
+2025-04-25 02:01:07 - Root WebApplicationContext: initialization completed in 1691 ms
+2025-04-25 02:01:07 - HikariPool-1 - Starting...
+2025-04-25 02:01:08 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3966c679
+2025-04-25 02:01:08 - HikariPool-1 - Start completed.
+2025-04-25 02:01:08 - Database: jdbc:postgresql://localhost:5433/javitto (PostgreSQL 17.4)
+2025-04-25 02:01:08 - Successfully validated 4 migrations (execution time 00:00.025s)
+2025-04-25 02:01:08 - Current version of schema "public": 2.2
+2025-04-25 02:01:08 - outOfOrder mode is active. Migration of schema "public" may not be reproducible.
+2025-04-25 02:01:08 - Schema "public" is up to date. No migration necessary.
+2025-04-25 02:01:08 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-25 02:01:08 - HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-04-25 02:01:08 - HHH000026: Second-level cache disabled
+2025-04-25 02:01:08 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-25 02:01:08 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-25 02:01:09 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-25 02:01:09 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 02:01:10 - Unsupported type 'class java.lang.String' for date property 'dateOfCreation'.
+2025-04-25 02:01:11 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-25 02:01:11 - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-25 02:01:11 - Starting ProtocolHandler ["http-nio-8082"]
+2025-04-25 02:01:11 - Tomcat started on port 8082 (http) with context path '/'
+2025-04-25 02:01:11 - Started JavittoApplication in 6.888 seconds (process running for 7.63)
+2025-04-25 02:01:30 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-25 02:01:30 - Initializing Servlet 'dispatcherServlet'
+2025-04-25 02:01:30 - Completed initialization in 6 ms
+2025-04-25 02:01:39 - Init duration for springdoc-openapi is: 361 ms
+2025-04-25 02:03:41 - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-25 02:03:41 - Graceful shutdown complete
+2025-04-25 02:03:41 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-25 02:03:41 - HikariPool-1 - Shutdown initiated...
+2025-04-25 02:03:41 - HikariPool-1 - Shutdown completed.

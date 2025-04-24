@@ -19,4 +19,9 @@ public interface AdvertisementSearchRepository extends ElasticsearchRepository<A
             "{\"match\": {\"description\": {\"query\": \"?0\", \"fuzziness\": \"AUTO\"}}} " +
             "]}}")
     Page<AdvertisementDocument> smartSearch(String query, Pageable pageable);
+
+    Page<AdvertisementDocument> findByParentCategory(String parentCategory, Pageable pageable);
+    Page<AdvertisementDocument> findByCity(String city, Pageable pageable);
+    Page<AdvertisementDocument> findByParentCategoryAndCity(String parentCategory, String city, Pageable pageable);
+
 }

@@ -4,6 +4,7 @@ import com.example.javitto.DTO.mapper.AdvertisementMapper;
 import com.example.javitto.DTO.request.AdvertisementCreateRequest;
 import com.example.javitto.DTO.request.AdvertisementUpdateRequest;
 import com.example.javitto.DTO.response.AdvertisementResponse;
+import com.example.javitto.elasticsearch.AdvertisementDocument;
 import com.example.javitto.elasticsearch.AdvertisementSearchRepository;
 import com.example.javitto.elasticsearch.AdvertisementSearchService;
 import com.example.javitto.entity.Advertisement;
