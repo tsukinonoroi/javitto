@@ -31,7 +31,6 @@ public class AdvertisementService {
     private final SecurityService securityService;
     private final EmailNotificationService emailNotificationService;
     private final AdvertisementSearchService searchService;
-    private final AdvertisementSearchRepository searchRepository;
     private final RedisTemplate<String, Object> redis;
 
     public AdvertisementResponse saveAdv(AdvertisementCreateRequest request) {

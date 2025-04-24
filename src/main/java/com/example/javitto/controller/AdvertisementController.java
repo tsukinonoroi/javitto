@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -36,7 +37,7 @@ public class AdvertisementController {
     })
     @PostMapping("/")
     public ResponseEntity<AdvertisementResponse> createAdvertisement(
-            @RequestBody AdvertisementCreateRequest request) {
+            @RequestBody @Valid AdvertisementCreateRequest request) {
         try {
             AdvertisementResponse response = advertisementService.saveAdv(request);
             return ResponseEntity.status(201).body(response);
@@ -83,7 +84,7 @@ public class AdvertisementController {
     @PutMapping("/{id}")
     public ResponseEntity<AdvertisementResponse> updateAdvertisement(
             @Parameter(description = "ID объявления") @PathVariable Long id,
-            @RequestBody AdvertisementUpdateRequest request) {
+            @RequestBody @Valid AdvertisementUpdateRequest request) {
         AdvertisementResponse adv = advertisementService.updateAdvertisement(id, request);
         return ResponseEntity.ok().body(adv);
     }
