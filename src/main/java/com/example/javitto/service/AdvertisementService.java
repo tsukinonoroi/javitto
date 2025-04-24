@@ -49,7 +49,9 @@ public class AdvertisementService {
             advertisement.setDateOfCreation(LocalDateTime.now());
             advertisement.setViewsCount(0L);
             Advertisement savedAdvertisement = advertisementRepository.save(advertisement);
+            log.info("Сохранили в БД объявление {}",advertisement.getTitle());
             searchService.saveToIndex(mapper.toDocument(savedAdvertisement));
+            log.info("Сохранили в документ elasticsearch объявление");
 
 /*
             emailNotificationService.sendAdvertisementEmail(user.getEmail(), advertisement.getTitle(), user.getUsername());

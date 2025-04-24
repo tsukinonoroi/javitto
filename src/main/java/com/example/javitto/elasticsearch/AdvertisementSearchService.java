@@ -32,7 +32,7 @@ public class AdvertisementSearchService {
         }
 
         Page<AdvertisementDocument> searchResults = searchRepository.smartSearch(query, pageable);
-        log.info("Найдены документы");
+        log.info("Найдены документы по запросу {}", query);
         return searchResults.map(mapper::toPreview);
     }
 

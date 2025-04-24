@@ -45,6 +45,7 @@ public class SecurityService {
                 return roles != null && roles.contains("client_admin");
             }
         }
+        log.info("Вызов метода isAdmin");
         return false;
     }
 

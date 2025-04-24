@@ -42,6 +42,8 @@ public class KeycloakUserService {
 
         keycloak.realm(realm).users().get(userId)
                 .roles().clientLevel(clientUUID).add(Collections.singletonList(role));
+
+        log.info("Назначили роль пользователю: {} ", roleUser);
     }
 
     private UserRepresentation createUserRepresentation(String username, String email, String password) {
