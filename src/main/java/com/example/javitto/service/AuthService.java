@@ -2,6 +2,7 @@ package com.example.javitto.service;
 
 import com.example.javitto.DTO.request.RegistrationRequest;
 import com.example.javitto.exception.RegistrationException;
+import com.example.javitto.service.spi.NotificationService;
 import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -40,14 +41,14 @@ public class AuthService {
             log.info("Вытащили юзерид: {}", userId);
             userService.saveUser(userId, request.getUsername(), request.getEmail(), LocalDate.now());
             log.info("Сохраняем пользователя в БД : {} ", request.getUsername());
-            /*emailNotificationService.sendRegistrationEmail(request.getEmail(), request.getUsername());*/
+            emailNotificationService.sendRegistrationEmail(request.getEmail(), request.getUsername());
         } finally {
             response.close();
         }
     }
 
     private UserRepresentation createUserRepresentation(RegistrationRequest request) {
-        log.info("Creating user representation for: {}", request);  // Логируем перед созданием
+        log.info("Creating user representation for: {}", request);
         UserRepresentation user = new UserRepresentation();
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
